@@ -1,0 +1,274 @@
+"use client";
+
+import { useState, type FormEvent } from "react";
+
+export default function Contacto() {
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "success" | "error"
+  >("idle");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setStatus("sending");
+
+    const form = e.currentTarget;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
+      plan: (form.elements.namedItem("plan") as HTMLSelectElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement)
+        .value,
+    };
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("Error al enviar");
+      setStatus("success");
+      form.reset();
+    } catch {
+      setStatus("error");
+    }
+  }
+
+  return (
+    <section className="bg-gradient-to-b from-gray-light to-white py-20 sm:py-28">
+      <div className="mx-auto max-w-6xl px-4">
+        <div className="grid gap-12 lg:grid-cols-2">
+          {/* Info */}
+          <div>
+            <p className="text-sm font-semibold tracking-widest text-primary uppercase">
+              Contacto
+            </p>
+            <h1 className="mt-3 text-3xl font-bold text-dark sm:text-4xl">
+              Hablemos de tu proyecto
+            </h1>
+            <p className="mt-4 text-gray-600 leading-relaxed">
+              Rellena el formulario y te responderemos en menos de 24 horas con
+              una propuesta personalizada y sin compromiso.
+            </p>
+
+            <div className="mt-10 space-y-6">
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <svg
+                    className="h-5 w-5 text-primary"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-dark">Email</h3>
+                  <p className="text-sm text-gray-600">
+                    aramirezbolea@gmail.com
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <svg
+                    className="h-5 w-5 text-primary"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-dark">
+                    Tiempo de respuesta
+                  </h3>
+                  <p className="text-sm text-gray-600">Menos de 24 horas</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <svg
+                    className="h-5 w-5 text-primary"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-semibold text-dark">Sin compromiso</h3>
+                  <p className="text-sm text-gray-600">
+                    Presupuesto gratuito y sin obligación
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Form */}
+          <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+            {status === "success" ? (
+              <div className="flex flex-col items-center justify-center py-12 text-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+                  <svg
+                    className="h-8 w-8 text-green-600"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4.5 12.75l6 6 9-13.5"
+                    />
+                  </svg>
+                </div>
+                <h3 className="mt-4 text-xl font-bold text-dark">
+                  Mensaje enviado
+                </h3>
+                <p className="mt-2 text-gray-600">
+                  Te responderemos en menos de 24 horas. Gracias por confiar en
+                  ORVEX.
+                </p>
+                <button
+                  onClick={() => setStatus("idle")}
+                  className="mt-6 text-sm font-medium text-primary hover:text-primary-dark"
+                >
+                  Enviar otro mensaje
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-dark"
+                  >
+                    Nombre completo
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    required
+                    className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+                    placeholder="Tu nombre"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-dark"
+                  >
+                    Email
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                    className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+                    placeholder="tu@email.com"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-dark"
+                  >
+                    Teléfono{" "}
+                    <span className="text-gray-400">(opcional)</span>
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+                    placeholder="+34 600 000 000"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="plan"
+                    className="block text-sm font-medium text-dark"
+                  >
+                    Plan de interés
+                  </label>
+                  <select
+                    id="plan"
+                    name="plan"
+                    className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+                  >
+                    <option value="no-decidido">No lo tengo claro</option>
+                    <option value="starter">Starter — 500€</option>
+                    <option value="professional">Professional — 800€</option>
+                    <option value="premium">Premium — 1.500€</option>
+                    <option value="custom">Custom — 2.500€</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-dark"
+                  >
+                    Cuéntanos tu proyecto
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    required
+                    className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none resize-none"
+                    placeholder="Describe brevemente tu idea, tu negocio y qué necesitas..."
+                  />
+                </div>
+
+                {status === "error" && (
+                  <p className="text-sm text-red-600">
+                    Error al enviar el mensaje. Inténtalo de nuevo o
+                    escríbenos directamente a aramirezbolea@gmail.com.
+                  </p>
+                )}
+
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="w-full rounded-xl bg-primary py-3.5 font-semibold text-white hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                >
+                  {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

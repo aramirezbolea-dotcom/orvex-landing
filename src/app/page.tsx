@@ -1,69 +1,147 @@
-import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-white to-accent/5">
+        <div className="mx-auto max-w-6xl px-4 py-24 sm:py-32 lg:py-40">
+          <div className="max-w-3xl">
+            <p className="text-sm font-semibold tracking-widest text-primary uppercase">
+              Agencia web autónoma
+            </p>
+            <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-dark sm:text-5xl lg:text-6xl">
+              Tu web profesional,{" "}
+              <span className="text-primary">sin complicaciones</span>
+            </h1>
+            <p className="mt-6 text-lg leading-relaxed text-gray-600 sm:text-xl">
+              Diseñamos y desarrollamos tu presencia digital con tecnología
+              moderna. Desde landing pages hasta tiendas online completas, con
+              mantenimiento incluido.
+            </p>
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+              <Link
+                href="/servicios"
+                className="rounded-xl bg-primary px-8 py-4 text-center font-semibold text-white shadow-lg shadow-primary/25 hover:bg-primary-dark transition-all hover:shadow-xl hover:shadow-primary/30"
+              >
+                Ver planes y precios
+              </Link>
+              <Link
+                href="/contacto"
+                className="rounded-xl border-2 border-gray-200 px-8 py-4 text-center font-semibold text-dark hover:border-primary hover:text-primary transition-colors"
+              >
+                Contactar
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
+      </section>
+
+      {/* Qué es ORVEX */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-dark sm:text-4xl">
+              ¿Por qué <span className="text-primary">ORVEX</span>?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+              Somos una agencia web autónoma que combina diseño moderno con
+              tecnología de última generación para crear experiencias digitales
+              que convierten visitantes en clientes.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              {
+                icon: (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128m0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42"
+                  />
+                ),
+                title: "Diseño a medida",
+                desc: "Cada proyecto es único. No usamos plantillas genéricas, diseñamos desde cero para tu marca.",
+              },
+              {
+                icon: (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
+                  />
+                ),
+                title: "Rendimiento extremo",
+                desc: "Webs ultra rápidas con Next.js y optimización avanzada. Tu web carga en menos de 2 segundos.",
+              },
+              {
+                icon: (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                  />
+                ),
+                title: "Mantenimiento incluido",
+                desc: "Nos encargamos de todo: hosting, actualizaciones, seguridad y soporte técnico mensual.",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="rounded-2xl border border-gray-100 bg-gray-light p-8 transition-shadow hover:shadow-lg"
+              >
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                  <svg
+                    className="h-6 w-6 text-primary"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    viewBox="0 0 24 24"
+                  >
+                    {item.icon}
+                  </svg>
+                </div>
+                <h3 className="mt-5 text-lg font-bold text-dark">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="bg-primary py-16 sm:py-20">
+        <div className="mx-auto max-w-4xl px-4 text-center">
+          <h2 className="text-3xl font-bold text-white sm:text-4xl">
+            ¿Listo para dar el salto digital?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-blue-100">
+            Cuéntanos tu idea y te prepararemos una propuesta personalizada sin
+            compromiso.
           </p>
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">
+            <Link
+              href="/servicios"
+              className="rounded-xl bg-white px-8 py-4 font-semibold text-primary shadow-lg hover:bg-gray-50 transition-colors"
+            >
+              Ver servicios
+            </Link>
+            <Link
+              href="/contacto"
+              className="rounded-xl border-2 border-white/30 px-8 py-4 font-semibold text-white hover:bg-white/10 transition-colors"
+            >
+              Contactar ahora
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+      </section>
+    </>
   );
 }
