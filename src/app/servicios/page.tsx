@@ -1,5 +1,29 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import {
+  Rocket,
+  Briefcase,
+  Crown,
+  Wrench,
+  Check,
+  X,
+  Globe,
+  Palette,
+  Search,
+  BarChart3,
+  Server,
+  Smartphone,
+  Headphones,
+  RefreshCw,
+  ShieldCheck,
+  Zap,
+  Code,
+  Lock,
+  CalendarClock,
+  ShoppingCart,
+  Bot,
+  Database,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Servicios — ORVEX Agency",
@@ -7,103 +31,224 @@ export const metadata: Metadata = {
     "Planes de diseño web desde 500€. Landing pages, webs multipágina, tiendas online y desarrollo a medida.",
 };
 
-const tiers = [
+const plans = [
   {
     name: "Starter",
-    price: "500",
-    monthly: "39",
-    description: "Landing simple",
-    features: [
-      "Diseño one-page responsive",
-      "Formulario de contacto",
-      "Optimización SEO básica",
-      "Hosting incluido",
-      "Certificado SSL",
-      "Entrega en 5-7 días",
+    price: 500,
+    monthly: 39,
+    icon: Rocket,
+    color: "from-emerald-500 to-teal-500",
+    colorLight: "bg-emerald-50 text-emerald-700 border-emerald-200",
+    tagline: "Ideal para negocios que quieren presencia online básica",
+    description:
+      "Landing page o web de una página para negocios que necesitan estar en internet con información esencial: quiénes son, qué ofrecen y cómo contactarles.",
+    includes: [
+      { text: "Landing page de hasta 5 secciones", included: true },
+      { text: "Diseño responsive (móvil, tablet, escritorio)", included: true },
+      { text: "Formulario de contacto", included: true },
+      { text: "Integración Google Maps", included: true },
+      { text: "SEO básico (meta tags, sitemap)", included: true },
+      { text: "Hosting incluido", included: true },
+      { text: "Certificado SSL", included: true },
+      { text: "Analítica básica (Google Analytics)", included: true },
+      { text: "Soporte por email", included: true },
+      { text: "Blog", included: false },
+      { text: "Múltiples páginas", included: false },
+      { text: "Sistema de reservas", included: false },
+      { text: "Tienda online", included: false },
     ],
-    cta: "Empezar con Starter",
-    highlighted: false,
+    ideal: "Autónomos, pequeños comercios, profesionales independientes",
+    delivery: "5-7 días laborables",
+    popular: false,
   },
   {
     name: "Professional",
-    price: "800",
-    monthly: "39",
-    description: "Web multipágina",
-    features: [
-      "Hasta 5 páginas",
-      "Diseño responsive premium",
-      "SEO avanzado",
-      "Blog integrado",
-      "Analítica web",
-      "Hosting + mantenimiento",
-      "Entrega en 10-14 días",
+    price: 800,
+    monthly: 39,
+    icon: Briefcase,
+    color: "from-indigo-500 to-violet-500",
+    colorLight: "bg-indigo-50 text-indigo-700 border-indigo-200",
+    tagline: "Para negocios que quieren crecer y posicionarse",
+    description:
+      "Web corporativa completa con múltiples páginas, blog integrado y optimización SEO avanzada. Perfecta para negocios que quieren generar confianza y captar clientes desde Google.",
+    includes: [
+      { text: "Web multipágina (hasta 10 páginas)", included: true },
+      { text: "Diseño personalizado y responsive", included: true },
+      { text: "Blog integrado con CMS", included: true },
+      { text: "SEO avanzado (keywords, schema, velocidad)", included: true },
+      { text: "Hosting incluido", included: true },
+      { text: "Certificado SSL", included: true },
+      { text: "Google Analytics + Search Console", included: true },
+      { text: "Formularios avanzados", included: true },
+      { text: "Integración redes sociales", included: true },
+      { text: "Soporte prioritario", included: true },
+      { text: "Sistema de reservas", included: false },
+      { text: "Tienda online", included: false },
+      { text: "Integraciones a medida", included: false },
     ],
-    cta: "Elegir Professional",
-    highlighted: true,
+    ideal: "PYMEs, clínicas, despachos, restaurantes, academias",
+    delivery: "10-15 días laborables",
+    popular: true,
   },
   {
     name: "Premium",
-    price: "1.500",
-    monthly: "59",
-    description: "Web completa con reservas/tienda",
-    features: [
-      "Hasta 10 páginas",
-      "Tienda online o sistema de reservas",
-      "Pasarela de pagos",
-      "Panel de administración",
-      "SEO + velocidad optimizada",
-      "Integraciones personalizadas",
-      "Entrega en 15-21 días",
+    price: 1500,
+    monthly: 59,
+    icon: Crown,
+    color: "from-amber-500 to-orange-500",
+    colorLight: "bg-amber-50 text-amber-700 border-amber-200",
+    tagline: "Para negocios que necesitan funcionalidad avanzada",
+    description:
+      "Web completa con funcionalidades avanzadas como sistema de reservas, tienda online, pasarela de pago e integraciones con herramientas externas.",
+    includes: [
+      { text: "Web multipágina (páginas ilimitadas)", included: true },
+      { text: "Diseño premium personalizado", included: true },
+      { text: "Blog integrado con CMS", included: true },
+      { text: "SEO completo + informe mensual", included: true },
+      { text: "Hosting premium incluido", included: true },
+      { text: "Certificado SSL", included: true },
+      { text: "Google Analytics avanzado", included: true },
+      { text: "Sistema de reservas online", included: true },
+      { text: "Tienda online (hasta 50 productos)", included: true },
+      { text: "Pasarela de pago (Stripe)", included: true },
+      { text: "Chat en vivo / WhatsApp", included: true },
+      {
+        text: "Integraciones básicas (CRM, email marketing)",
+        included: true,
+      },
+      { text: "Soporte prioritario + teléfono", included: true },
     ],
-    cta: "Ir a Premium",
-    highlighted: false,
+    ideal: "Clínicas con citas, talleres, autoescuelas, tiendas, hostelería",
+    delivery: "15-25 días laborables",
+    popular: false,
   },
   {
     name: "Custom",
-    price: "2.500",
-    monthly: "89",
-    description: "Desarrollo a medida",
-    features: [
-      "Páginas ilimitadas",
-      "Desarrollo a medida completo",
-      "API e integraciones avanzadas",
-      "Diseño UX/UI personalizado",
-      "Soporte prioritario",
-      "Formación incluida",
-      "Entrega según alcance",
+    price: 2500,
+    monthly: 89,
+    icon: Wrench,
+    color: "from-rose-500 to-pink-500",
+    colorLight: "bg-rose-50 text-rose-700 border-rose-200",
+    tagline: "Desarrollo a medida sin límites",
+    description:
+      "Portal web o aplicación completamente a medida. Desarrollo complejo con funcionalidades específicas para tu negocio: portales de clientes, dashboards, automatizaciones y APIs propias.",
+    includes: [
+      { text: "Desarrollo 100% a medida", included: true },
+      { text: "Diseño exclusivo UX/UI", included: true },
+      { text: "Blog / CMS avanzado", included: true },
+      { text: "SEO completo + estrategia", included: true },
+      { text: "Hosting dedicado incluido", included: true },
+      { text: "Certificado SSL", included: true },
+      { text: "Analítica avanzada personalizada", included: true },
+      { text: "Portal de clientes", included: true },
+      { text: "Dashboard administrativo", included: true },
+      { text: "Tienda online (productos ilimitados)", included: true },
+      { text: "Pasarelas de pago múltiples", included: true },
+      { text: "Integraciones a medida (API)", included: true },
+      { text: "Automatizaciones de negocio", included: true },
+      { text: "Soporte dedicado 24/7", included: true },
     ],
-    cta: "Solicitar Custom",
-    highlighted: false,
+    ideal: "Empresas con necesidades específicas, startups, SaaS",
+    delivery: "30-60 días laborables",
+    popular: false,
   },
 ];
 
-const extras = [
+const allFeatures = [
   {
-    name: "Tienda online ampliada",
-    price: "300",
-    desc: "Catálogo extenso, filtros avanzados, gestión de inventario.",
+    icon: Globe,
+    title: "Dominio propio",
+    desc: "Configuramos tu dominio .es o .com. Si no tienes, te ayudamos a elegirlo.",
   },
   {
-    name: "Sistema de reservas",
-    price: "200",
-    desc: "Calendario interactivo, confirmaciones automáticas, recordatorios.",
+    icon: Palette,
+    title: "Diseño a medida",
+    desc: "Nada de plantillas. Cada web se diseña desde cero adaptada a tu marca.",
   },
   {
-    name: "Migración de datos",
-    price: "150",
-    desc: "Traspaso completo de tu web actual: contenido, imágenes y SEO.",
+    icon: Smartphone,
+    title: "Responsive",
+    desc: "Todas las webs se ven perfectas en móvil, tablet y escritorio.",
   },
   {
-    name: "Chatbot IA",
-    price: "250",
-    desc: "Asistente virtual inteligente para atención al cliente 24/7.",
+    icon: Search,
+    title: "SEO",
+    desc: "Optimización para Google desde el primer día. Que te encuentren tus clientes.",
+  },
+  {
+    icon: Server,
+    title: "Hosting",
+    desc: "Hosting incluido en todos los planes. No tienes que preocuparte de nada.",
+  },
+  {
+    icon: Lock,
+    title: "SSL",
+    desc: "Certificado de seguridad incluido. Tu web siempre con el candado verde.",
+  },
+  {
+    icon: BarChart3,
+    title: "Analítica",
+    desc: "Google Analytics configurado para que veas cuántas visitas recibes.",
+  },
+  {
+    icon: Headphones,
+    title: "Soporte",
+    desc: "Estamos disponibles para resolver cualquier duda o incidencia.",
+  },
+  {
+    icon: RefreshCw,
+    title: "Mantenimiento",
+    desc: "Actualizaciones de seguridad y contenido incluidas en la cuota mensual.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "RGPD",
+    desc: "Política de cookies, aviso legal y protección de datos incluidos.",
+  },
+  {
+    icon: Zap,
+    title: "Velocidad",
+    desc: "Webs optimizadas para cargar en menos de 2 segundos.",
+  },
+  {
+    icon: Code,
+    title: "Tecnología moderna",
+    desc: "Next.js, React, Tailwind CSS. Tu web con la mejor tecnología del mercado.",
+  },
+];
+
+const addOns = [
+  {
+    icon: ShoppingCart,
+    title: "Tienda online ampliada",
+    price: "Desde 300€",
+    desc: "Más de 50 productos, variantes, inventario.",
+  },
+  {
+    icon: CalendarClock,
+    title: "Sistema de reservas",
+    price: "Desde 200€",
+    desc: "Calendario con citas, recordatorios automáticos.",
+  },
+  {
+    icon: Database,
+    title: "Migración de datos",
+    price: "Desde 150€",
+    desc: "Migramos tu web antigua al nuevo sistema.",
+  },
+  {
+    icon: Bot,
+    title: "Chatbot IA",
+    price: "Desde 250€",
+    desc: "Asistente virtual para resolver dudas de tus clientes 24/7.",
   },
 ];
 
 export default function Servicios() {
   return (
     <>
-      <section className="bg-gradient-to-b from-gray-light to-white py-20 sm:py-28">
+      {/* Header */}
+      <section className="bg-gradient-to-b from-gray-50 to-white py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
             <p className="text-sm font-semibold tracking-widest text-primary uppercase">
@@ -114,101 +259,166 @@ export default function Servicios() {
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
               Todos los planes incluyen hosting, certificado SSL y
-              mantenimiento mensual. Sin sorpresas.
+              mantenimiento mensual. Sin sorpresas. Precios sin IVA.
             </p>
           </div>
 
-          <div className="mt-16 grid gap-6 lg:grid-cols-4">
-            {tiers.map((tier) => (
+          {/* Plan cards */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+            {plans.map((plan) => (
               <div
-                key={tier.name}
-                className={`relative flex flex-col rounded-2xl border p-8 transition-shadow hover:shadow-xl ${
-                  tier.highlighted
-                    ? "border-primary bg-white shadow-lg shadow-primary/10 ring-2 ring-primary"
-                    : "border-gray-200 bg-white"
+                key={plan.name}
+                className={`relative flex flex-col bg-white rounded-xl border overflow-hidden transition-shadow hover:shadow-xl ${
+                  plan.popular
+                    ? "border-primary shadow-lg shadow-primary/10"
+                    : "border-gray-200"
                 }`}
               >
-                {tier.highlighted && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-primary px-4 py-1 text-xs font-bold text-white">
-                    Más popular
+                {plan.popular && (
+                  <div className="absolute top-0 right-0 bg-primary text-white text-[0.625rem] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-lg z-10">
+                    Más vendido
                   </div>
                 )}
-                <div>
-                  <h3 className="text-lg font-bold text-dark">{tier.name}</h3>
-                  <p className="mt-1 text-sm text-gray-500">
-                    {tier.description}
-                  </p>
-                </div>
-                <div className="mt-6">
-                  <span className="text-4xl font-extrabold text-dark">
-                    {tier.price}€
-                  </span>
-                  <span className="ml-1 text-sm text-gray-500">único</span>
-                  <p className="mt-1 text-sm text-gray-500">
-                    +{tier.monthly}€/mes mantenimiento
-                  </p>
-                </div>
-                <ul className="mt-8 flex-1 space-y-3">
-                  {tier.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3 text-sm">
-                      <svg
-                        className="mt-0.5 h-5 w-5 shrink-0 text-primary"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M4.5 12.75l6 6 9-13.5"
-                        />
-                      </svg>
-                      <span className="text-gray-700">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/contacto"
-                  className={`mt-8 block rounded-xl py-3.5 text-center font-semibold transition-colors ${
-                    tier.highlighted
-                      ? "bg-primary text-white hover:bg-primary-dark"
-                      : "bg-gray-100 text-dark hover:bg-primary hover:text-white"
-                  }`}
+
+                {/* Gradient header */}
+                <div
+                  className={`bg-gradient-to-br ${plan.color} p-5 text-white`}
                 >
-                  {tier.cta}
-                </Link>
+                  <plan.icon
+                    className="w-8 h-8 mb-3 opacity-90"
+                    strokeWidth={1.5}
+                  />
+                  <h2 className="text-xl font-bold">{plan.name}</h2>
+                  <p className="text-sm opacity-80 mt-1">{plan.tagline}</p>
+                  <div className="mt-4 flex items-baseline gap-1">
+                    <span className="text-3xl font-extrabold">
+                      {plan.price.toLocaleString("es-ES")}€
+                    </span>
+                    <span className="text-sm opacity-70">único</span>
+                  </div>
+                  <div className="text-sm opacity-80 mt-1">
+                    + {plan.monthly}€/mes mantenimiento
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex-1 p-5 space-y-4">
+                  <p className="text-sm text-gray-500">{plan.description}</p>
+
+                  <div className="space-y-2">
+                    {plan.includes.map((item) => (
+                      <div
+                        key={item.text}
+                        className="flex items-start gap-2 text-sm"
+                      >
+                        {item.included ? (
+                          <Check className="w-4 h-4 mt-0.5 text-green-500 shrink-0" />
+                        ) : (
+                          <X className="w-4 h-4 mt-0.5 text-gray-300 shrink-0" />
+                        )}
+                        <span
+                          className={
+                            item.included ? "text-gray-700" : "text-gray-400"
+                          }
+                        >
+                          {item.text}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div
+                    className={`text-xs border rounded-lg px-3 py-2.5 ${plan.colorLight}`}
+                  >
+                    <span className="font-semibold">Ideal para:</span>{" "}
+                    {plan.ideal}
+                  </div>
+
+                  <div className="text-xs text-gray-500">
+                    <span className="font-medium text-gray-700">Entrega:</span>{" "}
+                    {plan.delivery}
+                  </div>
+                </div>
+
+                {/* CTA */}
+                <div className="px-5 pb-5">
+                  <Link
+                    href="/contacto"
+                    className={`block rounded-xl py-3 text-center text-sm font-semibold transition-colors ${
+                      plan.popular
+                        ? "bg-primary text-white hover:bg-primary-dark"
+                        : "bg-gray-100 text-dark hover:bg-primary hover:text-white"
+                    }`}
+                  >
+                    Solicitar {plan.name}
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Extras */}
+      {/* Incluido en todos los planes */}
       <section className="bg-white py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4">
+          <h2 className="text-2xl font-bold text-dark text-center sm:text-3xl">
+            Incluido en todos los planes
+          </h2>
+          <p className="mx-auto mt-3 max-w-xl text-center text-gray-600">
+            Sea cual sea tu plan, siempre tendrás estas funcionalidades base.
+          </p>
+
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+            {allFeatures.map((feat) => (
+              <div
+                key={feat.title}
+                className="flex items-start gap-3 border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+              >
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <feat.icon className="w-[18px] h-[18px]" strokeWidth={1.75} />
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-dark">{feat.title}</p>
+                  <p className="text-xs text-gray-500 mt-0.5">{feat.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Extras opcionales */}
+      <section className="bg-gray-50 py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-dark sm:text-4xl">
+            <h2 className="text-2xl font-bold text-dark sm:text-3xl">
               Extras opcionales
             </h2>
-            <p className="mx-auto mt-4 max-w-xl text-gray-600">
-              Amplía tu web con funcionalidades adicionales según tus
-              necesidades.
+            <p className="mx-auto mt-3 max-w-xl text-gray-600">
+              Amplía tu web con funcionalidades adicionales. Se presupuestan
+              aparte según tus necesidades.
             </p>
           </div>
 
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {extras.map((extra) => (
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {addOns.map((addon) => (
               <div
-                key={extra.name}
-                className="rounded-2xl border border-gray-200 p-6 transition-shadow hover:shadow-lg"
+                key={addon.title}
+                className="bg-white border border-dashed border-gray-300 rounded-lg p-5 space-y-2 hover:shadow-md transition-shadow"
               >
-                <h3 className="font-bold text-dark">{extra.name}</h3>
-                <p className="mt-1 text-2xl font-extrabold text-primary">
-                  desde {extra.price}€
-                </p>
-                <p className="mt-3 text-sm leading-relaxed text-gray-600">
-                  {extra.desc}
+                <div className="flex items-center gap-2">
+                  <addon.icon
+                    className="w-[18px] h-[18px] text-gray-500"
+                    strokeWidth={1.75}
+                  />
+                  <span className="text-sm font-medium text-dark">
+                    {addon.title}
+                  </span>
+                </div>
+                <p className="text-xs text-gray-500">{addon.desc}</p>
+                <p className="text-sm font-semibold text-primary">
+                  {addon.price}
                 </p>
               </div>
             ))}
