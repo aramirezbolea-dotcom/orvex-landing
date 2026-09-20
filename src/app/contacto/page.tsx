@@ -2,41 +2,75 @@
 
 import { useState, type FormEvent } from "react";
 
+const LANDING_ENDPOINT =
+  "https://webs-e3yr.vercel.app/api/public/landing-request";
+
+type PlanValue = "STARTER" | "PROFESSIONAL" | "PREMIUM" | "CUSTOM" | "UNKNOWN";
+
 export default function Contacto() {
-  const [status, setStatus] = useState<
-    "idle" | "sending" | "success" | "error"
-  >("idle");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    companyName: "",
+    plan: "UNKNOWN" as PlanValue,
+    message: "",
+  });
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("sending");
-
-    const form = e.currentTarget;
-    const data = {
-      name: (form.elements.namedItem("name") as HTMLInputElement).value,
-      email: (form.elements.namedItem("email") as HTMLInputElement).value,
-      phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
-      plan: (form.elements.namedItem("plan") as HTMLSelectElement).value,
-      message: (form.elements.namedItem("message") as HTMLTextAreaElement)
-        .value,
-    };
+    setLoading(true);
+    setError("");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(LANDING_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone || undefined,
+          companyName: form.companyName || undefined,
+          plan: form.plan,
+          message: form.message || undefined,
+          sourceUrl: window.location.href,
+        }),
       });
-      if (!res.ok) throw new Error("Error al enviar");
-      setStatus("success");
-      form.reset();
+
+      if (res.ok) {
+        setSuccess(true);
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          companyName: "",
+          plan: "UNKNOWN",
+          message: "",
+        });
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || "Error enviando la solicitud");
+      }
     } catch {
-      setStatus("error");
+      setError("Error de conexión. Intenta de nuevo.");
+    } finally {
+      setLoading(false);
     }
   }
 
+  function updateField<K extends keyof typeof form>(
+    key: K,
+    value: (typeof form)[K]
+  ) {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  }
+
   return (
-    <section className="bg-gradient-to-b from-gray-light to-white py-20 sm:py-28">
+    <section className="bg-gradient-to-b from-gray-50 to-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4">
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Info */}
@@ -129,7 +163,7 @@ export default function Contacto() {
 
           {/* Form */}
           <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
-            {status === "success" ? (
+            {success ? (
               <div className="flex flex-col items-center justify-center py-12 text-center">
                 <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
                   <svg
@@ -154,7 +188,7 @@ export default function Contacto() {
                   ORVEX.
                 </p>
                 <button
-                  onClick={() => setStatus("idle")}
+                  onClick={() => setSuccess(false)}
                   className="mt-6 text-sm font-medium text-primary hover:text-primary-dark"
                 >
                   Enviar otro mensaje
@@ -171,9 +205,10 @@ export default function Contacto() {
                   </label>
                   <input
                     id="name"
-                    name="name"
                     type="text"
                     required
+                    value={form.name}
+                    onChange={(e) => updateField("name", e.target.value)}
                     className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
                     placeholder="Tu nombre"
                   />
@@ -188,29 +223,53 @@ export default function Contacto() {
                   </label>
                   <input
                     id="email"
-                    name="email"
                     type="email"
                     required
+                    value={form.email}
+                    onChange={(e) => updateField("email", e.target.value)}
                     className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
                     placeholder="tu@email.com"
                   />
                 </div>
 
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-dark"
-                  >
-                    Teléfono{" "}
-                    <span className="text-gray-400">(opcional)</span>
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
-                    placeholder="+34 600 000 000"
-                  />
+                <div className="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-dark"
+                    >
+                      Teléfono{" "}
+                      <span className="text-gray-400 text-xs">(opcional)</span>
+                    </label>
+                    <input
+                      id="phone"
+                      type="tel"
+                      value={form.phone}
+                      onChange={(e) => updateField("phone", e.target.value)}
+                      className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+                      placeholder="+34 600 000 000"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="companyName"
+                      className="block text-sm font-medium text-dark"
+                    >
+                      Empresa{" "}
+                      <span className="text-gray-400 text-xs">(opcional)</span>
+                    </label>
+                    <input
+                      id="companyName"
+                      type="text"
+                      value={form.companyName}
+                      onChange={(e) =>
+                        updateField("companyName", e.target.value)
+                      }
+                      className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+                      placeholder="Nombre de tu negocio"
+                    />
+                  </div>
                 </div>
 
                 <div>
@@ -222,14 +281,17 @@ export default function Contacto() {
                   </label>
                   <select
                     id="plan"
-                    name="plan"
+                    value={form.plan}
+                    onChange={(e) =>
+                      updateField("plan", e.target.value as PlanValue)
+                    }
                     className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
                   >
-                    <option value="no-decidido">No lo tengo claro</option>
-                    <option value="starter">Starter — 500€</option>
-                    <option value="professional">Professional — 800€</option>
-                    <option value="premium">Premium — 1.500€</option>
-                    <option value="custom">Custom — 2.500€</option>
+                    <option value="UNKNOWN">No lo tengo claro</option>
+                    <option value="STARTER">Starter — 500€</option>
+                    <option value="PROFESSIONAL">Professional — 800€</option>
+                    <option value="PREMIUM">Premium — 1.500€</option>
+                    <option value="CUSTOM">Custom — 2.500€</option>
                   </select>
                 </div>
 
@@ -238,32 +300,37 @@ export default function Contacto() {
                     htmlFor="message"
                     className="block text-sm font-medium text-dark"
                   >
-                    Cuéntanos tu proyecto
+                    Cuéntanos tu proyecto{" "}
+                    <span className="text-gray-400 text-xs">(opcional)</span>
                   </label>
                   <textarea
                     id="message"
-                    name="message"
                     rows={4}
-                    required
+                    value={form.message}
+                    onChange={(e) => updateField("message", e.target.value)}
                     className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none resize-none"
                     placeholder="Describe brevemente tu idea, tu negocio y qué necesitas..."
                   />
                 </div>
 
-                {status === "error" && (
-                  <p className="text-sm text-red-600">
-                    Error al enviar el mensaje. Inténtalo de nuevo o
-                    escríbenos directamente a aramirezbolea@gmail.com.
+                {error && (
+                  <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+                    {error}
                   </p>
                 )}
 
                 <button
                   type="submit"
-                  disabled={status === "sending"}
+                  disabled={loading}
                   className="w-full rounded-xl bg-primary py-3.5 font-semibold text-white hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+                  {loading ? "Enviando..." : "Enviar solicitud"}
                 </button>
+
+                <p className="text-xs text-gray-500 text-center">
+                  Al enviar aceptas nuestra política de privacidad. No
+                  compartimos tus datos con terceros.
+                </p>
               </form>
             )}
           </div>
