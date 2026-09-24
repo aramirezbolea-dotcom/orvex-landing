@@ -1,11 +1,12 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { PLANS, euros, offerPrice, type PlanKey } from "@/lib/plans";
 
 const LANDING_ENDPOINT =
   "https://webs-e3yr.vercel.app/api/public/landing-request";
 
-type PlanValue = "STARTER" | "PROFESSIONAL" | "PREMIUM" | "CUSTOM" | "UNKNOWN";
+type PlanValue = PlanKey | "UNKNOWN";
 
 export default function Contacto() {
   const [loading, setLoading] = useState(false);
@@ -288,10 +289,11 @@ export default function Contacto() {
                     className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
                   >
                     <option value="UNKNOWN">No lo tengo claro</option>
-                    <option value="STARTER">Starter — 500€</option>
-                    <option value="PROFESSIONAL">Professional — 800€</option>
-                    <option value="PREMIUM">Premium — 1.500€</option>
-                    <option value="CUSTOM">Custom — 2.500€</option>
+                    {(Object.keys(PLANS) as PlanKey[]).map((key) => (
+                      <option key={key} value={key}>
+                        {`${PLANS[key].name} — ${euros(offerPrice(PLANS[key].price))} (antes ${euros(PLANS[key].price)})`}
+                      </option>
+                    ))}
                   </select>
                 </div>
 

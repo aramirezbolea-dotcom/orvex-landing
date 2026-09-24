@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { PLANS, euros, offerPrice } from "@/lib/plans";
 
 export const metadata: Metadata = {
   title: "Portfolio — ORVEX Agency",
@@ -9,8 +10,7 @@ export const metadata: Metadata = {
 
 const projects = [
   {
-    tier: "Starter",
-    price: "500€",
+    plan: "STARTER",
     title: "Reformas Castillo — Landing",
     description:
       "Landing de una sola página para una empresa de reformas integrales en Madrid: servicios, proyectos, cifras clave y formulario para pedir presupuesto.",
@@ -18,8 +18,7 @@ const projects = [
     tags: ["Landing page", "Responsive", "Formulario"],
   },
   {
-    tier: "Professional",
-    price: "800€",
+    plan: "PROFESSIONAL",
     title: "Reformas Castillo — Web corporativa",
     description:
       "La misma empresa con web completa: páginas de servicios, proyectos, nosotros y contacto, más un blog con artículos pensados para posicionar en Google.",
@@ -27,8 +26,7 @@ const projects = [
     tags: ["Multipágina", "Blog", "SEO"],
   },
   {
-    tier: "Premium",
-    price: "1.500€",
+    plan: "PREMIUM",
     title: "Estudio Ávila — Arquitectura e interiorismo",
     description:
       "Web de autor para un estudio de arquitectura en Madrid: una página por servicio, fichas detalladas de proyectos, equipo y blog.",
@@ -36,15 +34,14 @@ const projects = [
     tags: ["Diseño premium", "Portfolio de proyectos", "Blog"],
   },
   {
-    tier: "Custom",
-    price: "2.500€",
+    plan: "CUSTOM",
     title: "Aether — Plataforma de gestión empresarial",
     description:
       "Web de producto para un software de gestión: CRM, analítica, automatización, tienda con checkout, dashboard, portal de clientes, casos de estudio y precios.",
     url: "https://orvex2500.netlify.app",
     tags: ["SaaS", "Dashboard", "E-commerce", "Portal de clientes"],
   },
-];
+] as const;
 
 export default function Portfolio() {
   return (
@@ -67,17 +64,23 @@ export default function Portfolio() {
           <div className="mt-16 grid gap-8 lg:grid-cols-2">
             {projects.map((project) => (
               <div
-                key={project.tier}
+                key={project.plan}
                 className="group overflow-hidden rounded-2xl border border-gray-200 bg-white transition-shadow hover:shadow-xl"
               >
                 {/* Preview bar */}
                 <div className="flex items-center justify-between border-b border-gray-100 bg-gray-light px-6 py-4">
                   <div className="flex items-center gap-3">
                     <span className="inline-flex rounded-lg bg-primary/10 px-3 py-1 text-xs font-bold text-primary">
-                      {project.tier}
+                      {PLANS[project.plan].name}
                     </span>
-                    <span className="text-sm font-semibold text-dark">
-                      {project.price}
+                    <span className="text-sm text-dark">
+                      <s className="mr-1.5 text-gray-400">
+                        <span className="sr-only">Antes </span>
+                        {euros(PLANS[project.plan].price)}
+                      </s>
+                      <span className="font-semibold">
+                        {euros(offerPrice(PLANS[project.plan].price))}
+                      </span>
                     </span>
                   </div>
                   <a

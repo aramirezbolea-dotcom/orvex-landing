@@ -24,18 +24,16 @@ import {
   Bot,
   Database,
 } from "lucide-react";
+import { LAUNCH_OFFER, PLANS, euros, offerPrice } from "@/lib/plans";
 
 export const metadata: Metadata = {
   title: "Servicios — ORVEX Agency",
-  description:
-    "Planes de diseño web desde 500€. Landing pages, webs multipágina, tiendas online y desarrollo a medida.",
+  description: `Planes de diseño web desde ${euros(offerPrice(PLANS.STARTER.price))} con la oferta de lanzamiento. Landing pages, webs multipágina, tiendas online y desarrollo a medida.`,
 };
 
 const plans = [
   {
-    name: "Starter",
-    price: 500,
-    monthly: 39,
+    ...PLANS.STARTER,
     icon: Rocket,
     color: "from-emerald-500 to-teal-500",
     colorLight: "bg-emerald-50 text-emerald-700 border-emerald-200",
@@ -62,9 +60,7 @@ const plans = [
     popular: false,
   },
   {
-    name: "Professional",
-    price: 800,
-    monthly: 39,
+    ...PLANS.PROFESSIONAL,
     icon: Briefcase,
     color: "from-indigo-500 to-violet-500",
     colorLight: "bg-indigo-50 text-indigo-700 border-indigo-200",
@@ -91,9 +87,7 @@ const plans = [
     popular: true,
   },
   {
-    name: "Premium",
-    price: 1500,
-    monthly: 59,
+    ...PLANS.PREMIUM,
     icon: Crown,
     color: "from-amber-500 to-orange-500",
     colorLight: "bg-amber-50 text-amber-700 border-amber-200",
@@ -123,9 +117,7 @@ const plans = [
     popular: false,
   },
   {
-    name: "Custom",
-    price: 2500,
-    monthly: 89,
+    ...PLANS.CUSTOM,
     icon: Wrench,
     color: "from-rose-500 to-pink-500",
     colorLight: "bg-rose-50 text-rose-700 border-rose-200",
@@ -263,8 +255,30 @@ export default function Servicios() {
             </p>
           </div>
 
+          <div className="mt-12 flex flex-col gap-4 rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest text-primary">
+                Oferta de lanzamiento
+              </p>
+              <p className="mt-1 text-lg font-bold text-dark">
+                -{LAUNCH_OFFER.percent}% en el precio inicial para los{" "}
+                {LAUNCH_OFFER.spots} primeros clientes
+              </p>
+              <p className="mt-1 text-sm text-gray-600">
+                A cambio, nos das tu opinión y nos permites enseñar tu web en
+                el portfolio. La cuota mensual se mantiene igual.
+              </p>
+            </div>
+            <Link
+              href="/contacto"
+              className="shrink-0 rounded-xl bg-primary px-6 py-3 text-center text-sm font-semibold text-white hover:bg-primary-dark transition-colors"
+            >
+              Quiero mi plaza
+            </Link>
+          </div>
+
           {/* Plan cards */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+          <div className="mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
             {plans.map((plan) => (
               <div
                 key={plan.name}
@@ -290,9 +304,18 @@ export default function Servicios() {
                   />
                   <h2 className="text-xl font-bold">{plan.name}</h2>
                   <p className="text-sm opacity-80 mt-1">{plan.tagline}</p>
-                  <div className="mt-4 flex items-baseline gap-1">
+                  <div className="mt-4 flex items-center gap-2 text-sm">
+                    <s className="opacity-70">
+                      <span className="sr-only">Antes </span>
+                      {euros(plan.price)}
+                    </s>
+                    <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs font-bold">
+                      -{LAUNCH_OFFER.percent}%
+                    </span>
+                  </div>
+                  <div className="flex items-baseline gap-1">
                     <span className="text-3xl font-extrabold">
-                      {plan.price.toLocaleString("es-ES")}€
+                      {euros(offerPrice(plan.price))}
                     </span>
                     <span className="text-sm opacity-70">único</span>
                   </div>
