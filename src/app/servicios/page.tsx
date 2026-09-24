@@ -34,6 +34,7 @@ export const metadata: Metadata = {
 const plans = [
   {
     ...PLANS.STARTER,
+    key: "STARTER" as const,
     icon: Rocket,
     color: "from-emerald-500 to-teal-500",
     colorLight: "bg-emerald-50 text-emerald-700 border-emerald-200",
@@ -61,6 +62,7 @@ const plans = [
   },
   {
     ...PLANS.PROFESSIONAL,
+    key: "PROFESSIONAL" as const,
     icon: Briefcase,
     color: "from-indigo-500 to-violet-500",
     colorLight: "bg-indigo-50 text-indigo-700 border-indigo-200",
@@ -88,6 +90,7 @@ const plans = [
   },
   {
     ...PLANS.PREMIUM,
+    key: "PREMIUM" as const,
     icon: Crown,
     color: "from-amber-500 to-orange-500",
     colorLight: "bg-amber-50 text-amber-700 border-amber-200",
@@ -118,6 +121,7 @@ const plans = [
   },
   {
     ...PLANS.CUSTOM,
+    key: "CUSTOM" as const,
     icon: Wrench,
     color: "from-rose-500 to-pink-500",
     colorLight: "bg-rose-50 text-rose-700 border-rose-200",
@@ -366,7 +370,7 @@ export default function Servicios() {
                 {/* CTA */}
                 <div className="px-5 pb-5">
                   <Link
-                    href="/contacto"
+                    href={`/contacto?plan=${plan.key}`}
                     className={`block rounded-xl py-3 text-center text-sm font-semibold transition-colors ${
                       plan.popular
                         ? "bg-primary text-white hover:bg-primary-dark"

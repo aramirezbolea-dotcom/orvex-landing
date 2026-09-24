@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { Suspense, useState, type FormEvent } from "react";
+import { useSearchParams } from "next/navigation";
 import { PLANS, euros, offerPrice, type PlanKey } from "@/lib/plans";
 
 const LANDING_ENDPOINT =
@@ -9,67 +10,6 @@ const LANDING_ENDPOINT =
 type PlanValue = PlanKey | "UNKNOWN";
 
 export default function Contacto() {
-  const [loading, setLoading] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState("");
-
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    companyName: "",
-    plan: "UNKNOWN" as PlanValue,
-    message: "",
-  });
-
-  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setLoading(true);
-    setError("");
-
-    try {
-      const res = await fetch(LANDING_ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          phone: form.phone || undefined,
-          companyName: form.companyName || undefined,
-          plan: form.plan,
-          message: form.message || undefined,
-          sourceUrl: window.location.href,
-        }),
-      });
-
-      if (res.ok) {
-        setSuccess(true);
-        setForm({
-          name: "",
-          email: "",
-          phone: "",
-          companyName: "",
-          plan: "UNKNOWN",
-          message: "",
-        });
-      } else {
-        const data = await res.json().catch(() => ({}));
-        setError(data.error || "Error enviando la solicitud");
-      }
-    } catch {
-      setError("Error de conexión. Intenta de nuevo.");
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  function updateField<K extends keyof typeof form>(
-    key: K,
-    value: (typeof form)[K]
-  ) {
-    setForm((prev) => ({ ...prev, [key]: value }));
-  }
-
   return (
     <section className="bg-gradient-to-b from-gray-50 to-white py-20 sm:py-28">
       <div className="mx-auto max-w-6xl px-4">
@@ -163,181 +103,259 @@ export default function Contacto() {
           </div>
 
           {/* Form */}
-          <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
-            {success ? (
-              <div className="flex flex-col items-center justify-center py-12 text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                  <svg
-                    className="h-8 w-8 text-green-600"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M4.5 12.75l6 6 9-13.5"
-                    />
-                  </svg>
-                </div>
-                <h3 className="mt-4 text-xl font-bold text-dark">
-                  Mensaje enviado
-                </h3>
-                <p className="mt-2 text-gray-600">
-                  Te responderemos en menos de 24 horas. Gracias por confiar en
-                  ORVEX.
-                </p>
-                <button
-                  onClick={() => setSuccess(false)}
-                  className="mt-6 text-sm font-medium text-primary hover:text-primary-dark"
-                >
-                  Enviar otro mensaje
-                </button>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-sm font-medium text-dark"
-                  >
-                    Nombre completo
-                  </label>
-                  <input
-                    id="name"
-                    type="text"
-                    required
-                    value={form.name}
-                    onChange={(e) => updateField("name", e.target.value)}
-                    className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
-                    placeholder="Tu nombre"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium text-dark"
-                  >
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={(e) => updateField("email", e.target.value)}
-                    className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
-                    placeholder="tu@email.com"
-                  />
-                </div>
-
-                <div className="grid gap-5 sm:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="phone"
-                      className="block text-sm font-medium text-dark"
-                    >
-                      Teléfono{" "}
-                      <span className="text-gray-400 text-xs">(opcional)</span>
-                    </label>
-                    <input
-                      id="phone"
-                      type="tel"
-                      value={form.phone}
-                      onChange={(e) => updateField("phone", e.target.value)}
-                      className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
-                      placeholder="+34 600 000 000"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="companyName"
-                      className="block text-sm font-medium text-dark"
-                    >
-                      Empresa{" "}
-                      <span className="text-gray-400 text-xs">(opcional)</span>
-                    </label>
-                    <input
-                      id="companyName"
-                      type="text"
-                      value={form.companyName}
-                      onChange={(e) =>
-                        updateField("companyName", e.target.value)
-                      }
-                      className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
-                      placeholder="Nombre de tu negocio"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="plan"
-                    className="block text-sm font-medium text-dark"
-                  >
-                    Plan de interés
-                  </label>
-                  <select
-                    id="plan"
-                    value={form.plan}
-                    onChange={(e) =>
-                      updateField("plan", e.target.value as PlanValue)
-                    }
-                    className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
-                  >
-                    <option value="UNKNOWN">No lo tengo claro</option>
-                    {(Object.keys(PLANS) as PlanKey[]).map((key) => (
-                      <option key={key} value={key}>
-                        {`${PLANS[key].name} — ${euros(offerPrice(PLANS[key].price))} (antes ${euros(PLANS[key].price)})`}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-dark"
-                  >
-                    Cuéntanos tu proyecto{" "}
-                    <span className="text-gray-400 text-xs">(opcional)</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    rows={4}
-                    value={form.message}
-                    onChange={(e) => updateField("message", e.target.value)}
-                    className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none resize-none"
-                    placeholder="Describe brevemente tu idea, tu negocio y qué necesitas..."
-                  />
-                </div>
-
-                {error && (
-                  <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
-                    {error}
-                  </p>
-                )}
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="w-full rounded-xl bg-primary py-3.5 font-semibold text-white hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
-                >
-                  {loading ? "Enviando..." : "Enviar solicitud"}
-                </button>
-
-                <p className="text-xs text-gray-500 text-center">
-                  Al enviar aceptas nuestra política de privacidad. No
-                  compartimos tus datos con terceros.
-                </p>
-              </form>
-            )}
-          </div>
+          <Suspense fallback={<ContactForm initialPlan="UNKNOWN" />}>
+            <ContactFormFromQuery />
+          </Suspense>
         </div>
       </div>
     </section>
+  );
+}
+
+function isPlanValue(value: string | null): value is PlanValue {
+  return value === "UNKNOWN" || (value !== null && Object.keys(PLANS).includes(value));
+}
+
+function ContactFormFromQuery() {
+  const plan = useSearchParams().get("plan");
+  return <ContactForm initialPlan={isPlanValue(plan) ? plan : "UNKNOWN"} />;
+}
+
+function ContactForm({ initialPlan }: { initialPlan: PlanValue }) {
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState("");
+
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    companyName: "",
+    plan: initialPlan,
+    message: "",
+  });
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setLoading(true);
+    setError("");
+
+    try {
+      const res = await fetch(LANDING_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone || undefined,
+          companyName: form.companyName || undefined,
+          plan: form.plan,
+          message: form.message || undefined,
+          sourceUrl: window.location.href,
+        }),
+      });
+
+      if (res.ok) {
+        setSuccess(true);
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          companyName: "",
+          plan: "UNKNOWN",
+          message: "",
+        });
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || "Error enviando la solicitud");
+      }
+    } catch {
+      setError("Error de conexión. Intenta de nuevo.");
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  function updateField<K extends keyof typeof form>(
+    key: K,
+    value: (typeof form)[K]
+  ) {
+    setForm((prev) => ({ ...prev, [key]: value }));
+  }
+
+  return (
+    <div className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm">
+      {success ? (
+        <div className="flex flex-col items-center justify-center py-12 text-center">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
+            <svg
+              className="h-8 w-8 text-green-600"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M4.5 12.75l6 6 9-13.5"
+              />
+            </svg>
+          </div>
+          <h3 className="mt-4 text-xl font-bold text-dark">
+            Mensaje enviado
+          </h3>
+          <p className="mt-2 text-gray-600">
+            Te responderemos en menos de 24 horas. Gracias por confiar en
+            ORVEX.
+          </p>
+          <button
+            onClick={() => setSuccess(false)}
+            className="mt-6 text-sm font-medium text-primary hover:text-primary-dark"
+          >
+            Enviar otro mensaje
+          </button>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="space-y-5">
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-dark"
+            >
+              Nombre completo
+            </label>
+            <input
+              id="name"
+              type="text"
+              required
+              value={form.name}
+              onChange={(e) => updateField("name", e.target.value)}
+              className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+              placeholder="Tu nombre"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-dark"
+            >
+              Email
+            </label>
+            <input
+              id="email"
+              type="email"
+              required
+              value={form.email}
+              onChange={(e) => updateField("email", e.target.value)}
+              className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+              placeholder="tu@email.com"
+            />
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            <div>
+              <label
+                htmlFor="phone"
+                className="block text-sm font-medium text-dark"
+              >
+                Teléfono{" "}
+                <span className="text-gray-400 text-xs">(opcional)</span>
+              </label>
+              <input
+                id="phone"
+                type="tel"
+                value={form.phone}
+                onChange={(e) => updateField("phone", e.target.value)}
+                className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+                placeholder="+34 600 000 000"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="companyName"
+                className="block text-sm font-medium text-dark"
+              >
+                Empresa{" "}
+                <span className="text-gray-400 text-xs">(opcional)</span>
+              </label>
+              <input
+                id="companyName"
+                type="text"
+                value={form.companyName}
+                onChange={(e) =>
+                  updateField("companyName", e.target.value)
+                }
+                className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+                placeholder="Nombre de tu negocio"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              htmlFor="plan"
+              className="block text-sm font-medium text-dark"
+            >
+              Plan de interés
+            </label>
+            <select
+              id="plan"
+              value={form.plan}
+              onChange={(e) =>
+                updateField("plan", e.target.value as PlanValue)
+              }
+              className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
+            >
+              <option value="UNKNOWN">No lo tengo claro</option>
+              {(Object.keys(PLANS) as PlanKey[]).map((key) => (
+                <option key={key} value={key}>
+                  {`${PLANS[key].name} — ${euros(offerPrice(PLANS[key].price))} (antes ${euros(PLANS[key].price)})`}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <div>
+            <label
+              htmlFor="message"
+              className="block text-sm font-medium text-dark"
+            >
+              Cuéntanos tu proyecto{" "}
+              <span className="text-gray-400 text-xs">(opcional)</span>
+            </label>
+            <textarea
+              id="message"
+              rows={4}
+              value={form.message}
+              onChange={(e) => updateField("message", e.target.value)}
+              className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none resize-none"
+              placeholder="Describe brevemente tu idea, tu negocio y qué necesitas..."
+            />
+          </div>
+
+          {error && (
+            <p className="text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg px-4 py-3">
+              {error}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={loading}
+            className="w-full rounded-xl bg-primary py-3.5 font-semibold text-white hover:bg-primary-dark transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+          >
+            {loading ? "Enviando..." : "Enviar solicitud"}
+          </button>
+
+          <p className="text-xs text-gray-500 text-center">
+            Al enviar aceptas nuestra política de privacidad. No
+            compartimos tus datos con terceros.
+          </p>
+        </form>
+      )}
+    </div>
   );
 }
