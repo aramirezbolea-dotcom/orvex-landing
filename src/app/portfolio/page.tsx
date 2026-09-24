@@ -14,7 +14,7 @@ const projects = [
     title: "Reformas Castillo",
     description:
       "Landing page para empresa de reformas. Diseño limpio y directo con formulario de contacto integrado.",
-    url: "https://reformascastillo500.netlify.app",
+    url: "https://orvex500.netlify.app",
     tags: ["Landing page", "Responsive", "Formulario"],
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     title: "Reformas Castillo Pro",
     description:
       "Web multipágina con secciones de servicios, galería de proyectos y blog. Diseño premium responsive.",
-    url: "https://reformas-castillo800.netlify.app",
+    url: "https://orvex800.netlify.app",
     tags: ["Multipágina", "Blog", "SEO"],
   },
   {
@@ -32,7 +32,7 @@ const projects = [
     title: "Stunning Cactus",
     description:
       "Web completa con sistema de reservas integrado, panel de administración y pasarela de pagos.",
-    url: "https://stunning-cactus-1500.netlify.app",
+    url: "https://orvex1500.netlify.app",
     tags: ["Reservas", "E-commerce", "Dashboard"],
   },
   {
@@ -41,7 +41,7 @@ const projects = [
     title: "Web 2500 — Desarrollo a medida",
     description:
       "Desarrollo completo a medida con integraciones avanzadas, API personalizada y diseño UX/UI premium.",
-    url: "https://web2500.netlify.app",
+    url: "https://orvex2500.netlify.app",
     tags: ["Full-stack", "API", "UX/UI"],
   },
 ];
