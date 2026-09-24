@@ -11,38 +11,38 @@ const projects = [
   {
     tier: "Starter",
     price: "500€",
-    title: "Reformas Castillo",
+    title: "Reformas Castillo — Landing",
     description:
-      "Landing page para empresa de reformas. Diseño limpio y directo con formulario de contacto integrado.",
+      "Landing de una sola página para una empresa de reformas integrales en Madrid: servicios, proyectos, cifras clave y formulario para pedir presupuesto.",
     url: "https://orvex500.netlify.app",
     tags: ["Landing page", "Responsive", "Formulario"],
   },
   {
     tier: "Professional",
     price: "800€",
-    title: "Reformas Castillo Pro",
+    title: "Reformas Castillo — Web corporativa",
     description:
-      "Web multipágina con secciones de servicios, galería de proyectos y blog. Diseño premium responsive.",
+      "La misma empresa con web completa: páginas de servicios, proyectos, nosotros y contacto, más un blog con artículos pensados para posicionar en Google.",
     url: "https://orvex800.netlify.app",
     tags: ["Multipágina", "Blog", "SEO"],
   },
   {
     tier: "Premium",
     price: "1.500€",
-    title: "Stunning Cactus",
+    title: "Estudio Ávila — Arquitectura e interiorismo",
     description:
-      "Web completa con sistema de reservas integrado, panel de administración y pasarela de pagos.",
+      "Web de autor para un estudio de arquitectura en Madrid: una página por servicio, fichas detalladas de proyectos, equipo y blog.",
     url: "https://orvex1500.netlify.app",
-    tags: ["Reservas", "E-commerce", "Dashboard"],
+    tags: ["Diseño premium", "Portfolio de proyectos", "Blog"],
   },
   {
     tier: "Custom",
     price: "2.500€",
-    title: "Web 2500 — Desarrollo a medida",
+    title: "Aether — Plataforma de gestión empresarial",
     description:
-      "Desarrollo completo a medida con integraciones avanzadas, API personalizada y diseño UX/UI premium.",
+      "Web de producto para un software de gestión: CRM, analítica, automatización, tienda con checkout, dashboard, portal de clientes, casos de estudio y precios.",
     url: "https://orvex2500.netlify.app",
-    tags: ["Full-stack", "API", "UX/UI"],
+    tags: ["SaaS", "Dashboard", "E-commerce", "Portal de clientes"],
   },
 ];
 
