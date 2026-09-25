@@ -255,7 +255,7 @@ export default function Servicios() {
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
               Todos los planes incluyen hosting, certificado SSL y
-              mantenimiento mensual. Sin sorpresas. Precios sin IVA.
+              mantenimiento mensual. Sin sorpresas.
             </p>
           </div>
 
