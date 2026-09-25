@@ -81,6 +81,10 @@ export default function Privacidad() {
             <li><strong>Resend</strong>: envío de los emails de confirmación.</li>
           </ul>
           <p>
+            Si nos escribes por WhatsApp, esos mensajes se tratan a través de WhatsApp (Meta) según
+            sus propias condiciones, y los usamos solo para responderte.
+          </p>
+          <p>
             Algunos de estos proveedores tienen sede en Estados Unidos. En esos casos, la
             transferencia de datos se realiza con las garantías que exige el RGPD, como el Marco de
             Privacidad de Datos UE-EE. UU. o las cláusulas contractuales tipo de la Comisión Europea.
