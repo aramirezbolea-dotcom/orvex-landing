@@ -1,9 +1,10 @@
 import Link from "next/link";
+import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from "@/lib/contact";
 
 export default function Footer() {
   return (
     <footer className="bg-dark text-gray-400">
-      <div className="mx-auto max-w-6xl px-4 py-12">
+      <div className="mx-auto max-w-6xl px-4 pt-12 pb-24 sm:pb-12">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <h3 className="text-lg font-bold text-white">
@@ -63,6 +64,21 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold text-white">Contacto</h4>
             <ul className="mt-3 space-y-2 text-sm">
+              <li>
+                <a href={PHONE_TEL} className="hover:text-white transition-colors">
+                  {PHONE_DISPLAY}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
+                  WhatsApp
+                </a>
+              </li>
               <li>aramirezbolea@gmail.com</li>
               <li>
                 <Link
