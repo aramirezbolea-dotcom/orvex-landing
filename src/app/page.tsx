@@ -1,5 +1,27 @@
 import Link from "next/link";
 import { getLaunchOffer, spotsLeftText } from "@/lib/launch-offer";
+import { REVISION_ROUNDS } from "@/lib/terms";
+import { WHATSAPP_URL } from "@/lib/contact";
+import WhatsAppIcon from "@/components/whatsapp-icon";
+
+const steps = [
+  {
+    title: "Hablamos 15 minutos",
+    desc: "Me cuentas tu negocio y qué necesitas. Es gratis y sin compromiso.",
+  },
+  {
+    title: "Te enseño un boceto",
+    desc: "Antes de construir nada ves cómo quedará. Si no te convence, lo dejamos ahí y no pagas nada.",
+  },
+  {
+    title: "Construyo tu web",
+    desc: `La ves en un enlace de prueba y tienes ${REVISION_ROUNDS} rondas de cambios para dejarla a tu gusto.`,
+  },
+  {
+    title: "Pagas al final y la publico",
+    desc: "Solo pagas cuando la web está terminada. Entonces la publico en tu dominio y me encargo del mantenimiento.",
+  },
+];
 
 export default async function Home() {
   const offer = await getLaunchOffer();
@@ -20,10 +42,11 @@ export default async function Home() {
                 </span>
                 <span>
                   Oferta de lanzamiento
-                  <span className="hidden sm:inline">
-                    {" "}
-                    {spotsLeftText(offer)}
-                  </span>
+                  {offer.spotsLeft !== null ? (
+                    <span> · {spotsLeftText(offer)}</span>
+                  ) : (
+                    <span className="hidden sm:inline"> {spotsLeftText(offer)}</span>
+                  )}
                 </span>
                 <span aria-hidden="true">→</span>
               </Link>
@@ -133,6 +156,70 @@ export default async function Home() {
                 </p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cómo trabajo */}
+      <section className="bg-gray-light py-20 sm:py-28">
+        <div className="mx-auto max-w-6xl px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-dark sm:text-4xl">Cómo trabajo</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+              Sabes lo que va a pasar en cada momento. Y no pagas nada hasta que tu web está
+              terminada.
+            </p>
+          </div>
+          <ol className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {steps.map((step, i) => (
+              <li key={step.title} className="rounded-2xl border border-gray-100 bg-white p-6">
+                <span className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-white">
+                  {i + 1}
+                </span>
+                <h3 className="mt-4 font-bold text-dark">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-gray-600">{step.desc}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="mt-8 text-center text-sm text-gray-600">
+            Todos los detalles en las{" "}
+            <Link href="/condiciones" className="text-primary underline hover:text-primary-dark">
+              condiciones del servicio
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+
+      {/* Sobre mí */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-8 px-4 text-center sm:flex-row sm:text-left">
+          <div
+            aria-hidden="true"
+            className="flex h-32 w-32 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary to-accent text-4xl font-bold text-white shadow-lg"
+          >
+            ÁR
+          </div>
+          <div>
+            <p className="text-sm font-semibold tracking-widest text-primary uppercase">
+              Quién está detrás
+            </p>
+            <h2 className="mt-2 text-3xl font-bold text-dark">Hola, soy Álvaro Ramírez</h2>
+            <p className="mt-4 leading-relaxed text-gray-600">
+              ORVEX soy yo. Hago webs para negocios que quieren estar bien presentados en
+              internet sin complicarse. Trabajo solo, así que hablas siempre conmigo: desde la
+              primera llamada hasta que tu web está publicada, y también después, cuando necesitas
+              cambiar algo.
+            </p>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-white hover:bg-[#1ebe5b] transition-colors"
+            >
+              <WhatsAppIcon className="h-5 w-5" />
+              Escríbeme por WhatsApp
+            </a>
           </div>
         </div>
       </section>

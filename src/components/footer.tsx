@@ -97,7 +97,10 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} ORVEX Agency. Todos los derechos
             reservados.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+            <Link href="/condiciones" className="hover:text-white transition-colors">
+              Condiciones
+            </Link>
             <Link href="/aviso-legal" className="hover:text-white transition-colors">
               Aviso legal
             </Link>
