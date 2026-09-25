@@ -24,12 +24,17 @@ import {
   Bot,
   Database,
 } from "lucide-react";
-import { LAUNCH_OFFER, PLANS, euros, offerPrice } from "@/lib/plans";
+import { PLANS, euros } from "@/lib/plans";
+import { currentPrice, getLaunchOffer, spotsLeftText } from "@/lib/launch-offer";
 
-export const metadata: Metadata = {
-  title: "Servicios — ORVEX Agency",
-  description: `Planes de diseño web desde ${euros(offerPrice(PLANS.STARTER.price))} con la oferta de lanzamiento. Landing pages, webs multipágina, tiendas online y desarrollo a medida.`,
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const offer = await getLaunchOffer();
+  const from = euros(currentPrice(PLANS.STARTER.price, offer));
+  return {
+    title: "Servicios — ORVEX Agency",
+    description: `Planes de diseño web desde ${from}${offer.active ? " con la oferta de lanzamiento" : ""}. Landing pages, webs multipágina, tiendas online y desarrollo a medida.`,
+  };
+}
 
 const plans = [
   {
@@ -240,7 +245,9 @@ const addOns = [
   },
 ];
 
-export default function Servicios() {
+export default async function Servicios() {
+  const offer = await getLaunchOffer();
+
   return (
     <>
       {/* Header */}
@@ -259,27 +266,32 @@ export default function Servicios() {
             </p>
           </div>
 
-          <div className="mt-12 flex flex-col gap-4 rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-primary">
-                Oferta de lanzamiento
-              </p>
-              <p className="mt-1 text-lg font-bold text-dark">
-                -{LAUNCH_OFFER.percent}% en el precio inicial para los{" "}
-                {LAUNCH_OFFER.spots} primeros clientes
-              </p>
-              <p className="mt-1 text-sm text-gray-600">
-                A cambio, nos das tu opinión y nos permites enseñar tu web en
-                el portfolio. La cuota mensual se mantiene igual.
-              </p>
+          {offer.active && (
+            <div className="mt-12 flex flex-col gap-4 rounded-2xl border border-primary/20 bg-primary/5 p-6 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest text-primary">
+                  Oferta de lanzamiento
+                </p>
+                <p className="mt-1 text-lg font-bold text-dark">
+                  -{offer.percent}% en el precio inicial para los{" "}
+                  {offer.spots} primeros clientes
+                  {offer.spotsLeft !== null && (
+                    <span className="text-primary"> · {spotsLeftText(offer)}</span>
+                  )}
+                </p>
+                <p className="mt-1 text-sm text-gray-600">
+                  A cambio, nos das tu opinión y nos permites enseñar tu web en
+                  el portfolio. La cuota mensual se mantiene igual.
+                </p>
+              </div>
+              <Link
+                href="/contacto"
+                className="shrink-0 rounded-xl bg-primary px-6 py-3 text-center text-sm font-semibold text-white hover:bg-primary-dark transition-colors"
+              >
+                Quiero mi plaza
+              </Link>
             </div>
-            <Link
-              href="/contacto"
-              className="shrink-0 rounded-xl bg-primary px-6 py-3 text-center text-sm font-semibold text-white hover:bg-primary-dark transition-colors"
-            >
-              Quiero mi plaza
-            </Link>
-          </div>
+          )}
 
           {/* Plan cards */}
           <div className="mt-8 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
@@ -308,18 +320,20 @@ export default function Servicios() {
                   />
                   <h2 className="text-xl font-bold">{plan.name}</h2>
                   <p className="text-sm opacity-80 mt-1">{plan.tagline}</p>
-                  <div className="mt-4 flex items-center gap-2 text-sm">
-                    <s className="opacity-70">
-                      <span className="sr-only">Antes </span>
-                      {euros(plan.price)}
-                    </s>
-                    <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs font-bold">
-                      -{LAUNCH_OFFER.percent}%
-                    </span>
-                  </div>
-                  <div className="flex items-baseline gap-1">
+                  {offer.active && (
+                    <div className="mt-4 flex items-center gap-2 text-sm">
+                      <s className="opacity-70">
+                        <span className="sr-only">Antes </span>
+                        {euros(plan.price)}
+                      </s>
+                      <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs font-bold">
+                        -{offer.percent}%
+                      </span>
+                    </div>
+                  )}
+                  <div className={`flex items-baseline gap-1 ${offer.active ? "" : "mt-4"}`}>
                     <span className="text-3xl font-extrabold">
-                      {euros(offerPrice(plan.price))}
+                      {euros(currentPrice(plan.price, offer))}
                     </span>
                     <span className="text-sm opacity-70">único</span>
                   </div>

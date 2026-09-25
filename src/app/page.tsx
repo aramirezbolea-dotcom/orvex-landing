@@ -1,29 +1,33 @@
 import Link from "next/link";
-import { LAUNCH_OFFER } from "@/lib/plans";
+import { getLaunchOffer, spotsLeftText } from "@/lib/launch-offer";
 
-export default function Home() {
+export default async function Home() {
+  const offer = await getLaunchOffer();
+
   return (
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-white to-accent/5">
         <div className="mx-auto max-w-6xl px-4 py-24 sm:py-32 lg:py-40">
           <div className="max-w-3xl">
-            <Link
-              href="/servicios"
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white py-1.5 pl-1.5 pr-4 text-sm font-medium text-dark shadow-sm hover:border-primary transition-colors"
-            >
-              <span className="rounded-full bg-primary px-2 py-0.5 text-xs font-bold text-white">
-                -{LAUNCH_OFFER.percent}%
-              </span>
-              <span>
-                Oferta de lanzamiento
-                <span className="hidden sm:inline">
-                  {" "}
-                  para los {LAUNCH_OFFER.spots} primeros clientes
+            {offer.active && (
+              <Link
+                href="/servicios"
+                className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white py-1.5 pl-1.5 pr-4 text-sm font-medium text-dark shadow-sm hover:border-primary transition-colors"
+              >
+                <span className="rounded-full bg-primary px-2 py-0.5 text-xs font-bold text-white">
+                  -{offer.percent}%
                 </span>
-              </span>
-              <span aria-hidden="true">→</span>
-            </Link>
+                <span>
+                  Oferta de lanzamiento
+                  <span className="hidden sm:inline">
+                    {" "}
+                    {spotsLeftText(offer)}
+                  </span>
+                </span>
+                <span aria-hidden="true">→</span>
+              </Link>
+            )}
             <p className="text-sm font-semibold tracking-widest text-primary uppercase">
               Agencia web autónoma
             </p>
