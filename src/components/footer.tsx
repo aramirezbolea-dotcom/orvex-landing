@@ -76,9 +76,19 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-gray-800 pt-6 text-center text-xs">
-          &copy; {new Date().getFullYear()} ORVEX Agency. Todos los derechos
-          reservados.
+        <div className="mt-10 border-t border-gray-800 pt-6 flex flex-col items-center gap-3 text-xs sm:flex-row sm:justify-between">
+          <p>
+            &copy; {new Date().getFullYear()} ORVEX Agency. Todos los derechos
+            reservados.
+          </p>
+          <div className="flex gap-4">
+            <Link href="/aviso-legal" className="hover:text-white transition-colors">
+              Aviso legal
+            </Link>
+            <Link href="/privacidad" className="hover:text-white transition-colors">
+              Política de privacidad
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
