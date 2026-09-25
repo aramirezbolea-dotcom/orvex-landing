@@ -2,6 +2,7 @@
 
 import { Suspense, useState, type FormEvent } from "react";
 import { useSearchParams } from "next/navigation";
+import Link from "next/link";
 import { PLANS, euros, offerPrice, type PlanKey } from "@/lib/plans";
 
 const LANDING_ENDPOINT =
@@ -350,9 +351,15 @@ function ContactForm({ initialPlan }: { initialPlan: PlanValue }) {
             {loading ? "Enviando..." : "Enviar solicitud"}
           </button>
 
-          <p className="text-xs text-gray-500 text-center">
-            Al enviar aceptas nuestra política de privacidad. No
-            compartimos tus datos con terceros.
+          <p className="text-xs text-gray-500 text-center leading-relaxed">
+            Responsable: Álvaro Ramírez Bolea (ORVEX Agency). Usaremos tus
+            datos solo para responder a tu solicitud y no los cederemos a
+            terceros. Puedes ejercer tus derechos escribiendo a
+            aramirezbolea@gmail.com. Más información en la{" "}
+            <Link href="/privacidad" className="underline hover:text-primary">
+              política de privacidad
+            </Link>
+            .
           </p>
         </form>
       )}
