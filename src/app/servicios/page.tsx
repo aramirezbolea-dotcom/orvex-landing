@@ -26,6 +26,8 @@ import {
 } from "lucide-react";
 import { PLANS, euros } from "@/lib/plans";
 import { currentPrice, getLaunchOffer, spotsLeftText } from "@/lib/launch-offer";
+import { MAINTENANCE_HOURS } from "@/lib/terms";
+import Faq from "@/components/faq";
 
 export async function generateMetadata(): Promise<Metadata> {
   const offer = await getLaunchOffer();
@@ -159,7 +161,7 @@ const allFeatures = [
   {
     icon: Globe,
     title: "Dominio propio",
-    desc: "Configuramos tu dominio .es o .com. Si no tienes, te ayudamos a elegirlo.",
+    desc: "El primer año de tu .es o .com está incluido y va a tu nombre. Si ya tienes uno, lo configuramos.",
   },
   {
     icon: Palette,
@@ -340,6 +342,9 @@ export default async function Servicios() {
                   <div className="text-sm opacity-80 mt-1">
                     + {plan.monthly}€/mes mantenimiento
                   </div>
+                  <div className="text-xs opacity-70">
+                    Incluye hasta {MAINTENANCE_HOURS} h de cambios al mes
+                  </div>
                 </div>
 
                 {/* Content */}
@@ -466,6 +471,8 @@ export default async function Servicios() {
           </div>
         </div>
       </section>
+
+      <Faq />
 
       {/* CTA */}
       <section className="bg-dark py-16">
