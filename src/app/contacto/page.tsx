@@ -181,6 +181,7 @@ function ContactForm({ initialPlan }: { initialPlan: PlanValue }) {
     companyName: "",
     plan: initialPlan,
     message: "",
+    website: "",
   });
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -200,6 +201,7 @@ function ContactForm({ initialPlan }: { initialPlan: PlanValue }) {
           plan: form.plan,
           message: form.message || undefined,
           sourceUrl: window.location.href,
+          website: form.website,
         }),
       });
 
@@ -212,6 +214,7 @@ function ContactForm({ initialPlan }: { initialPlan: PlanValue }) {
           companyName: "",
           plan: "UNKNOWN",
           message: "",
+          website: "",
         });
       } else {
         const data = await res.json().catch(() => ({}));
@@ -266,6 +269,19 @@ function ContactForm({ initialPlan }: { initialPlan: PlanValue }) {
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-5">
+          {/* Anti-spam trap: hidden from people, bots fill it in. */}
+          <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+            <label htmlFor="website">No rellenes este campo</label>
+            <input
+              id="website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={form.website}
+              onChange={(e) => updateField("website", e.target.value)}
+            />
+          </div>
+
           <div>
             <label
               htmlFor="name"
