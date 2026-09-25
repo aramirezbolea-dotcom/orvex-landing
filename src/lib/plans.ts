@@ -9,10 +9,6 @@ export const PLANS = {
 
 export type PlanKey = keyof typeof PLANS;
 
-export function offerPrice(price: number) {
-  return Math.round((price * (100 - LAUNCH_OFFER.percent)) / 100);
-}
-
 // Manual grouping: toLocaleString("es-ES") skips the separator on 4-digit numbers.
 export function euros(amount: number) {
   return `${amount.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}€`;

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { PLANS, euros, offerPrice } from "@/lib/plans";
+import { PLANS, euros } from "@/lib/plans";
+import { currentPrice, getLaunchOffer } from "@/lib/launch-offer";
 
 export const metadata: Metadata = {
   title: "Portfolio — ORVEX Agency",
@@ -43,7 +44,9 @@ const projects = [
   },
 ] as const;
 
-export default function Portfolio() {
+export default async function Portfolio() {
+  const offer = await getLaunchOffer();
+
   return (
     <>
       <section className="bg-gradient-to-b from-gray-light to-white py-20 sm:py-28">
@@ -74,12 +77,14 @@ export default function Portfolio() {
                       {PLANS[project.plan].name}
                     </span>
                     <span className="text-sm text-dark">
-                      <s className="mr-1.5 text-gray-400">
-                        <span className="sr-only">Antes </span>
-                        {euros(PLANS[project.plan].price)}
-                      </s>
+                      {offer.active && (
+                        <s className="mr-1.5 text-gray-400">
+                          <span className="sr-only">Antes </span>
+                          {euros(PLANS[project.plan].price)}
+                        </s>
+                      )}
                       <span className="font-semibold">
-                        {euros(offerPrice(PLANS[project.plan].price))}
+                        {euros(currentPrice(PLANS[project.plan].price, offer))}
                       </span>
                     </span>
                   </div>
