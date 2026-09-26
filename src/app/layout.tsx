@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "ORVEX Agency — Diseño y Desarrollo Web Profesional",
   description:
-    "Agencia web autónoma. Creamos tu presencia digital con tecnología moderna: landing pages, webs multipágina, tiendas online y desarrollo a medida.",
+    "Diseño web para negocios, sin intermediarios: landing pages, webs multipágina, tiendas online y desarrollo a medida, con mantenimiento incluido.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

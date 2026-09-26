@@ -6,7 +6,7 @@ import { currentPrice, getLaunchOffer } from "@/lib/launch-offer";
 export const metadata: Metadata = {
   title: "Portfolio — ORVEX Agency",
   description:
-    "Ejemplos reales de nuestro trabajo: desde landing pages hasta desarrollos completos a medida.",
+    "Webs de ejemplo de cada plan, desde una landing page hasta un desarrollo completo a medida.",
 };
 
 const projects = [
@@ -53,14 +53,15 @@ export default async function Portfolio() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
             <p className="text-sm font-semibold tracking-widest text-primary uppercase">
-              Nuestro trabajo
+              Webs de ejemplo
             </p>
             <h1 className="mt-3 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">
               Portfolio
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-              Ejemplos reales de proyectos que hemos desarrollado, uno por
-              cada tier de servicio.
+              He hecho una web de ejemplo para cada plan, con negocios
+              inventados, para que veas qué recibes en cada uno. Pronto
+              estarán aquí las webs de mis primeros clientes.
             </p>
           </div>
 
@@ -143,8 +144,8 @@ export default async function Portfolio() {
             ¿Te gusta lo que ves?
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-blue-100">
-            Cada proyecto empieza con una conversación. Cuéntanos tu idea y
-            hagámosla realidad.
+            Cada proyecto empieza con una conversación. Cuéntame tu idea y
+            la hacemos realidad juntos.
           </p>
           <Link
             href="/contacto"

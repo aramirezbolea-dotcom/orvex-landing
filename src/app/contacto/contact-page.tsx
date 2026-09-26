@@ -27,8 +27,8 @@ export default function ContactPage({ offer }: { offer: LaunchOffer }) {
               Hablemos de tu proyecto
             </h1>
             <p className="mt-4 text-gray-600 leading-relaxed">
-              Escríbenos por WhatsApp, llámanos o rellena el formulario y te
-              responderemos en menos de 24 horas con una propuesta personalizada
+              Escríbeme por WhatsApp, llámame o rellena el formulario y te
+              responderé en menos de 24 horas con una propuesta personalizada
               y sin compromiso.
             </p>
 
@@ -40,7 +40,7 @@ export default function ContactPage({ offer }: { offer: LaunchOffer }) {
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-semibold text-white hover:bg-[#1ebe5b] transition-colors"
               >
                 <WhatsAppIcon className="h-5 w-5" />
-                Escríbenos por WhatsApp
+                Escríbeme por WhatsApp
               </a>
               <a
                 href={PHONE_TEL}
@@ -258,7 +258,7 @@ function ContactForm({ initialPlan, offer }: { initialPlan: PlanValue; offer: La
             Mensaje enviado
           </h3>
           <p className="mt-2 text-gray-600">
-            Te responderemos en menos de 24 horas. Gracias por confiar en
+            Te responderé en menos de 24 horas. Gracias por confiar en
             ORVEX.
           </p>
           <button
@@ -390,7 +390,7 @@ function ContactForm({ initialPlan, offer }: { initialPlan: PlanValue; offer: La
               htmlFor="message"
               className="block text-sm font-medium text-dark"
             >
-              Cuéntanos tu proyecto{" "}
+              Cuéntame tu proyecto{" "}
               <span className="text-gray-400 text-xs">(opcional)</span>
             </label>
             <textarea
@@ -418,8 +418,8 @@ function ContactForm({ initialPlan, offer }: { initialPlan: PlanValue; offer: La
           </button>
 
           <p className="text-xs text-gray-500 text-center leading-relaxed">
-            Responsable: Álvaro Ramírez Bolea (ORVEX Agency). Usaremos tus
-            datos solo para responder a tu solicitud y no los cederemos a
+            Responsable: Álvaro Ramírez Bolea (ORVEX Agency). Usaré tus
+            datos solo para responder a tu solicitud y no los cederé a
             terceros. Puedes ejercer tus derechos escribiendo a
             aramirezbolea@gmail.com. Más información en la{" "}
             <Link href="/privacidad" className="underline hover:text-primary">
