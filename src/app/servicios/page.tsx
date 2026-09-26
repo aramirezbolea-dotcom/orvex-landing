@@ -78,7 +78,7 @@ const plans = [
       "Web corporativa completa con múltiples páginas, blog integrado y optimización SEO avanzada. Perfecta para negocios que quieren generar confianza y captar clientes desde Google.",
     includes: [
       { text: "Web multipágina (hasta 10 páginas)", included: true },
-      { text: "Diseño personalizado y responsive", included: true },
+      { text: "Diseño adaptado a tu marca y responsive", included: true },
       { text: "Blog integrado con CMS", included: true },
       { text: "SEO avanzado (keywords, schema, velocidad)", included: true },
       { text: "Hosting incluido", included: true },
@@ -106,7 +106,7 @@ const plans = [
       "Web completa con funcionalidades avanzadas como sistema de reservas, tienda online, pasarela de pago e integraciones con herramientas externas.",
     includes: [
       { text: "Web multipágina (páginas ilimitadas)", included: true },
-      { text: "Diseño premium personalizado", included: true },
+      { text: "Diseño premium adaptado a tu marca", included: true },
       { text: "Blog integrado con CMS", included: true },
       { text: "SEO avanzado + Google Search Console", included: true },
       { text: "Hosting incluido", included: true },
@@ -137,7 +137,7 @@ const plans = [
       "Portal web o aplicación completamente a medida. Desarrollo complejo con funcionalidades específicas para tu negocio: portales de clientes, dashboards, automatizaciones y APIs propias.",
     includes: [
       { text: "Desarrollo 100% a medida", included: true },
-      { text: "Diseño exclusivo UX/UI", included: true },
+      { text: "Diseño UX/UI adaptado a tu proyecto", included: true },
       { text: "Blog / CMS avanzado", included: true },
       { text: "SEO completo + estrategia", included: true },
       { text: "Hosting incluido", included: true },
@@ -165,8 +165,8 @@ const allFeatures = [
   },
   {
     icon: Palette,
-    title: "Diseño a medida",
-    desc: "Nada de plantillas. Cada web se diseña desde cero adaptada a tu marca.",
+    title: "Diseño adaptado a ti",
+    desc: "Parto de un diseño ya probado y lo adapto a tu negocio: tus colores, tu logo, tus fotos y tus textos.",
   },
   {
     icon: Smartphone,
