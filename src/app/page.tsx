@@ -118,8 +118,8 @@ export default async function Home() {
                     d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"
                   />
                 ),
-                title: "Rendimiento extremo",
-                desc: "Webs ultra rápidas con Next.js y optimización avanzada. Tu web carga en menos de 2 segundos.",
+                title: "Webs rápidas",
+                desc: "Optimizadas para cargar rápido en el móvil. Antes de entregarte la web te enseño su nota en Google PageSpeed, para que lo compruebes tú.",
               },
               {
                 icon: (
