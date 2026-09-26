@@ -56,7 +56,7 @@ const plans = [
       { text: "SEO básico (meta tags, sitemap)", included: true },
       { text: "Hosting incluido", included: true },
       { text: "Certificado SSL", included: true },
-      { text: "Analítica básica (Google Analytics)", included: true },
+      { text: "Estadísticas de visitas sin cookies", included: true },
       { text: "Soporte por email y WhatsApp", included: true },
       { text: "Blog", included: false },
       { text: "Múltiples páginas", included: false },
@@ -83,7 +83,7 @@ const plans = [
       { text: "SEO avanzado (keywords, schema, velocidad)", included: true },
       { text: "Hosting incluido", included: true },
       { text: "Certificado SSL", included: true },
-      { text: "Google Analytics + Search Console", included: true },
+      { text: "Estadísticas sin cookies + Google Search Console", included: true },
       { text: "Formularios avanzados", included: true },
       { text: "Integración redes sociales", included: true },
       { text: "Soporte por email y WhatsApp (respuesta en menos de 24 h)", included: true },
@@ -108,10 +108,10 @@ const plans = [
       { text: "Web multipágina (páginas ilimitadas)", included: true },
       { text: "Diseño premium personalizado", included: true },
       { text: "Blog integrado con CMS", included: true },
-      { text: "SEO avanzado + informe mensual", included: true },
+      { text: "SEO avanzado + Google Search Console", included: true },
       { text: "Hosting incluido", included: true },
       { text: "Certificado SSL", included: true },
-      { text: "Google Analytics avanzado", included: true },
+      { text: "Estadísticas de visitas y contactos sin cookies", included: true },
       { text: "Sistema de reservas online", included: true },
       { text: "Tienda online (hasta 50 productos)", included: true },
       { text: "Pasarela de pago (Stripe)", included: true },
@@ -142,7 +142,7 @@ const plans = [
       { text: "SEO completo + estrategia", included: true },
       { text: "Hosting incluido", included: true },
       { text: "Certificado SSL", included: true },
-      { text: "Analítica avanzada personalizada", included: true },
+      { text: "Estadísticas a medida sin cookies", included: true },
       { text: "Portal de clientes", included: true },
       { text: "Dashboard administrativo", included: true },
       { text: "Tienda online (productos ilimitados)", included: true },
@@ -190,8 +190,8 @@ const allFeatures = [
   },
   {
     icon: BarChart3,
-    title: "Analítica",
-    desc: "Google Analytics configurado para que veas cuántas visitas recibes.",
+    title: "Estadísticas",
+    desc: "Ves cuántas personas visitan tu web y de dónde vienen, sin cookies y sin banner molesto.",
   },
   {
     icon: Headphones,
@@ -201,17 +201,17 @@ const allFeatures = [
   {
     icon: RefreshCw,
     title: "Mantenimiento",
-    desc: "Actualizaciones de seguridad y contenido incluidas en la cuota mensual.",
+    desc: `Actualizaciones de seguridad y hasta ${MAINTENANCE_HOURS} h de cambios al mes incluidas en la cuota.`,
   },
   {
     icon: ShieldCheck,
-    title: "RGPD",
-    desc: "Política de cookies, aviso legal y protección de datos incluidos.",
+    title: "Legal (RGPD)",
+    desc: "Aviso legal y política de privacidad de tu web. Sin cookies de seguimiento, así que no necesitas banner de cookies.",
   },
   {
     icon: Zap,
     title: "Velocidad",
-    desc: "Webs optimizadas para cargar en menos de 2 segundos.",
+    desc: "Optimizadas para cargar rápido en el móvil. Antes de entregarla te enseño su nota en Google PageSpeed.",
   },
   {
     icon: Code,
@@ -238,6 +238,12 @@ const addOns = [
     title: "Migración de datos",
     price: "Desde 150€",
     desc: "Paso tu web antigua al nuevo sistema.",
+  },
+  {
+    icon: Search,
+    title: "Seguimiento SEO mensual",
+    price: "Desde 49€/mes",
+    desc: "Reviso cada mes cómo te encuentra Google, te mando un informe y aplico mejoras.",
   },
   {
     icon: Bot,
@@ -447,7 +453,7 @@ export default async function Servicios() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {addOns.map((addon) => (
               <div
                 key={addon.title}

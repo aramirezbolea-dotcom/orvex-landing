@@ -87,10 +87,17 @@ export default function Condiciones() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold text-dark">6. Tus textos, fotos y logo</h2>
+          <h2 className="text-xl font-semibold text-dark">6. Tus textos, fotos, logo y textos legales</h2>
           <p>
             Necesitas tener derecho a usar el contenido que me pases. Si no tienes fotos propias,
             uso imágenes con licencia libre. Nunca copio textos ni imágenes de otras webs.
+          </p>
+          <p>
+            Te preparo el aviso legal y la política de privacidad de tu web con los datos de tu
+            negocio, y revisas que sean correctos. Las estadísticas de visitas que instalo no usan
+            cookies, así que tu web no necesita banner de cookies. Si más adelante quieres
+            herramientas que sí las usan (Google Analytics, píxeles de anuncios…), añado el aviso
+            de cookies antes de activarlas.
           </p>
         </div>
 
