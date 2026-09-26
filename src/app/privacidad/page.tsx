@@ -26,8 +26,8 @@ export default function Privacidad() {
           <h2 className="text-xl font-semibold text-dark">2. Qué datos recojo</h2>
           <p>Cuando rellenas el formulario de contacto recojo:</p>
           <ul className="list-disc pl-6 space-y-1">
-            <li>Nombre y email.</li>
-            <li>Teléfono y nombre de tu empresa, si decides indicarlos.</li>
+            <li>Nombre, email y teléfono.</li>
+            <li>El nombre de tu empresa, si decides indicarlo.</li>
             <li>El plan que te interesa y el mensaje que me escribas.</li>
             <li>
               Datos técnicos del envío (dirección IP, navegador y página desde la que lo envías),

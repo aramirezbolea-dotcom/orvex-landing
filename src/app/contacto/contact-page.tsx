@@ -187,8 +187,12 @@ function ContactForm({ initialPlan, offer }: { initialPlan: PlanValue; offer: La
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setLoading(true);
     setError("");
+    if (form.phone.replace(/\D/g, "").length < 9) {
+      setError("Escribe un teléfono válido para que pueda llamarte.");
+      return;
+    }
+    setLoading(true);
 
     try {
       const res = await fetch(LANDING_ENDPOINT, {
@@ -197,7 +201,7 @@ function ContactForm({ initialPlan, offer }: { initialPlan: PlanValue; offer: La
         body: JSON.stringify({
           name: form.name,
           email: form.email,
-          phone: form.phone || undefined,
+          phone: form.phone,
           companyName: form.companyName || undefined,
           plan: form.plan,
           message: form.message || undefined,
@@ -325,12 +329,13 @@ function ContactForm({ initialPlan, offer }: { initialPlan: PlanValue; offer: La
                 htmlFor="phone"
                 className="block text-sm font-medium text-dark"
               >
-                Teléfono{" "}
-                <span className="text-gray-400 text-xs">(opcional)</span>
+                Teléfono
               </label>
               <input
                 id="phone"
                 type="tel"
+                required
+                autoComplete="tel"
                 value={form.phone}
                 onChange={(e) => updateField("phone", e.target.value)}
                 className="mt-1.5 w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-dark placeholder:text-gray-400 focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none"
