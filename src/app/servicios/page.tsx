@@ -161,7 +161,7 @@ const allFeatures = [
   {
     icon: Globe,
     title: "Dominio propio",
-    desc: "El primer año de tu .es o .com está incluido y va a tu nombre. Si ya tienes uno, lo configuramos.",
+    desc: "El primer año de tu .es o .com está incluido y va a tu nombre. Si ya tienes uno, lo configuro.",
   },
   {
     icon: Palette,
@@ -237,7 +237,7 @@ const addOns = [
     icon: Database,
     title: "Migración de datos",
     price: "Desde 150€",
-    desc: "Migramos tu web antigua al nuevo sistema.",
+    desc: "Paso tu web antigua al nuevo sistema.",
   },
   {
     icon: Bot,
@@ -282,7 +282,7 @@ export default async function Servicios() {
                   )}
                 </p>
                 <p className="mt-1 text-sm text-gray-600">
-                  A cambio, nos das tu opinión y nos permites enseñar tu web en
+                  A cambio, me das tu opinión y me dejas enseñar tu web en
                   el portfolio. La cuota mensual se mantiene igual.
                 </p>
               </div>
@@ -308,7 +308,7 @@ export default async function Servicios() {
               >
                 {plan.popular && (
                   <div className="absolute top-0 right-0 bg-primary text-white text-[0.625rem] font-bold uppercase tracking-wider px-3 py-1 rounded-bl-lg z-10">
-                    Más vendido
+                    Recomendado
                   </div>
                 )}
 
@@ -481,7 +481,7 @@ export default async function Servicios() {
             ¿No sabes qué plan elegir?
           </h2>
           <p className="mx-auto mt-3 max-w-lg text-gray-400">
-            Cuéntanos tu proyecto y te recomendamos la mejor opción sin
+            Cuéntame tu proyecto y te recomiendo la mejor opción sin
             compromiso.
           </p>
           <Link

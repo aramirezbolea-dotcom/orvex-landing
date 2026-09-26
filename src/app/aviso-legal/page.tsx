@@ -77,7 +77,7 @@ export default function AvisoLegal() {
         <div className="space-y-3">
           <h2 className="text-xl font-semibold text-dark">6. Protección de datos</h2>
           <p>
-            El tratamiento de los datos personales que nos facilites se explica en la{" "}
+            El tratamiento de los datos personales que me facilites se explica en la{" "}
             <Link href="/privacidad" className="text-primary underline hover:text-primary-dark">
               política de privacidad
             </Link>

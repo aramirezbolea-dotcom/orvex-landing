@@ -11,8 +11,8 @@ export default function Footer() {
               ORVEX<span className="text-primary"> Agency</span>
             </h3>
             <p className="mt-3 text-sm leading-relaxed">
-              Agencia web autónoma. Diseñamos y desarrollamos tu presencia
-              digital con tecnología moderna.
+              Diseño y desarrollo webs para negocios. Hablas siempre
+              directamente conmigo, sin intermediarios.
             </p>
           </div>
 

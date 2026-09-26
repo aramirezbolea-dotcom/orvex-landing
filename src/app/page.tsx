@@ -52,16 +52,16 @@ export default async function Home() {
               </Link>
             )}
             <p className="text-sm font-semibold tracking-widest text-primary uppercase">
-              Agencia web autónoma
+              Diseño web para negocios
             </p>
             <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-dark sm:text-5xl lg:text-6xl">
               Tu web profesional,{" "}
               <span className="text-primary">sin complicaciones</span>
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-gray-600 sm:text-xl">
-              Diseñamos y desarrollamos tu presencia digital con tecnología
-              moderna. Desde landing pages hasta tiendas online completas, con
-              mantenimiento incluido.
+              Diseño y desarrollo tu web con tecnología moderna, desde una
+              landing page hasta una tienda online, con mantenimiento incluido.
+              Y hablas siempre directamente conmigo.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
@@ -91,9 +91,9 @@ export default async function Home() {
               ¿Por qué <span className="text-primary">ORVEX</span>?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-              Somos una agencia web autónoma que combina diseño moderno con
-              tecnología de última generación para crear experiencias digitales
-              que convierten visitantes en clientes.
+              Trabajo solo, y eso juega a tu favor: hablas siempre directamente
+              conmigo, sin intermediarios ni comerciales. Quien te atiende es
+              quien diseña y cuida tu web.
             </p>
           </div>
 
@@ -108,7 +108,7 @@ export default async function Home() {
                   />
                 ),
                 title: "Diseño a medida",
-                desc: "Cada proyecto es único. No usamos plantillas genéricas, diseñamos desde cero para tu marca.",
+                desc: "Cada proyecto es único. No uso plantillas genéricas: diseño tu web desde cero para tu marca.",
               },
               {
                 icon: (
@@ -130,7 +130,7 @@ export default async function Home() {
                   />
                 ),
                 title: "Mantenimiento incluido",
-                desc: "Nos encargamos de todo: hosting, actualizaciones, seguridad y soporte técnico mensual.",
+                desc: "Me encargo de todo: hosting, actualizaciones, seguridad y los cambios que necesites cada mes.",
               },
             ].map((item) => (
               <div
@@ -231,7 +231,7 @@ export default async function Home() {
             ¿Listo para dar el salto digital?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-blue-100">
-            Cuéntanos tu idea y te prepararemos una propuesta personalizada sin
+            Cuéntame tu idea y te preparo una propuesta personalizada sin
             compromiso.
           </p>
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center">

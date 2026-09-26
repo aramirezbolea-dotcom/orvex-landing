@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Política de privacidad — ORVEX Agency",
-  description: "Cómo tratamos los datos personales que nos facilitas a través de esta web.",
+  description: "Cómo trato los datos personales que me facilitas a través de esta web.",
 };
 
 export default function Privacidad() {
@@ -23,29 +23,29 @@ export default function Privacidad() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold text-dark">2. Qué datos recogemos</h2>
-          <p>Cuando rellenas el formulario de contacto recogemos:</p>
+          <h2 className="text-xl font-semibold text-dark">2. Qué datos recojo</h2>
+          <p>Cuando rellenas el formulario de contacto recojo:</p>
           <ul className="list-disc pl-6 space-y-1">
             <li>Nombre y email.</li>
             <li>Teléfono y nombre de tu empresa, si decides indicarlos.</li>
-            <li>El plan que te interesa y el mensaje que nos escribas.</li>
+            <li>El plan que te interesa y el mensaje que me escribas.</li>
             <li>
               Datos técnicos del envío (dirección IP, navegador y página desde la que lo envías),
-              que usamos para evitar abusos y envíos automáticos.
+              que uso para evitar abusos y envíos automáticos.
             </li>
           </ul>
-          <p>No recogemos datos de menores de 14 años ni categorías especiales de datos.</p>
+          <p>No recojo datos de menores de 14 años ni categorías especiales de datos.</p>
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold text-dark">3. Para qué los usamos</h2>
+          <h2 className="text-xl font-semibold text-dark">3. Para qué los uso</h2>
           <ul className="list-disc pl-6 space-y-1">
             <li>Responder a tu solicitud y contactarte por email o teléfono sobre ella.</li>
             <li>Preparar y enviarte un presupuesto de los servicios que te interesan.</li>
-            <li>Enviarte un email de confirmación de que hemos recibido tu solicitud.</li>
+            <li>Enviarte un email de confirmación de que he recibido tu solicitud.</li>
           </ul>
           <p>
-            No usamos tus datos para enviarte publicidad sin tu permiso ni para tomar decisiones
+            No uso tus datos para enviarte publicidad sin tu permiso ni para tomar decisiones
             automatizadas sobre ti.
           </p>
         </div>
@@ -53,7 +53,7 @@ export default function Privacidad() {
         <div className="space-y-3">
           <h2 className="text-xl font-semibold text-dark">4. Base legal</h2>
           <p>
-            Tratamos tus datos porque tú nos los facilitas para pedir información o un presupuesto,
+            Trato tus datos porque tú me los facilitas para pedir información o un presupuesto,
             es decir, para aplicar medidas precontractuales a petición tuya (artículo 6.1.b del
             Reglamento General de Protección de Datos). Si llegas a contratar, la base será la
             ejecución del contrato.
@@ -61,19 +61,19 @@ export default function Privacidad() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold text-dark">5. Cuánto tiempo los conservamos</h2>
+          <h2 className="text-xl font-semibold text-dark">5. Cuánto tiempo los conservo</h2>
           <p>
-            Si no llegas a contratar, conservamos tus datos un máximo de 12 meses desde tu último
-            contacto y después los eliminamos. Si contratas, los conservamos mientras dure la
+            Si no llegas a contratar, conservo tus datos un máximo de 12 meses desde tu último
+            contacto y después los elimino. Si contratas, los conservo mientras dure la
             relación y, después, el tiempo que exija la ley (por ejemplo, las obligaciones fiscales).
           </p>
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold text-dark">6. Con quién los compartimos</h2>
+          <h2 className="text-xl font-semibold text-dark">6. Con quién los comparto</h2>
           <p>
-            No vendemos ni cedemos tus datos a terceros. Para que la web funcione usamos estos
-            proveedores, que tratan los datos solo por nuestra cuenta:
+            No vendo ni cedo tus datos a terceros. Para que la web funcione uso estos
+            proveedores, que tratan los datos solo por mi cuenta:
           </p>
           <ul className="list-disc pl-6 space-y-1">
             <li><strong>Vercel</strong>: alojamiento de la web.</li>
@@ -81,8 +81,8 @@ export default function Privacidad() {
             <li><strong>Resend</strong>: envío de los emails de confirmación.</li>
           </ul>
           <p>
-            Si nos escribes por WhatsApp, esos mensajes se tratan a través de WhatsApp (Meta) según
-            sus propias condiciones, y los usamos solo para responderte.
+            Si me escribes por WhatsApp, esos mensajes se tratan a través de WhatsApp (Meta) según
+            sus propias condiciones, y los uso solo para responderte.
           </p>
           <p>
             Algunos de estos proveedores tienen sede en Estados Unidos. En esos casos, la
@@ -100,7 +100,7 @@ export default function Privacidad() {
             ejercer.
           </p>
           <p>
-            Si consideras que no hemos tratado bien tus datos, puedes presentar una reclamación ante
+            Si consideras que no he tratado bien tus datos, puedes presentar una reclamación ante
             la Agencia Española de Protección de Datos (
             <a
               href="https://www.aepd.es"

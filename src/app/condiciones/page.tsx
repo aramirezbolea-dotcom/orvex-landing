@@ -7,7 +7,7 @@ import { MAINTENANCE_HOURS, REVISION_ROUNDS } from "@/lib/terms";
 export const metadata: Metadata = {
   title: "Condiciones del servicio — ORVEX Agency",
   description:
-    "Cómo trabajamos, cuándo se paga, qué incluye el mantenimiento y de quién es la web y el dominio.",
+    "Cómo trabajo, cuándo se paga, qué incluye el mantenimiento y de quién es la web y el dominio.",
 };
 
 export default function Condiciones() {
@@ -18,17 +18,16 @@ export default function Condiciones() {
           <h1 className="text-3xl font-bold text-dark sm:text-4xl">Condiciones del servicio</h1>
           <p className="mt-2 text-sm text-gray-500">Última actualización: septiembre de 2026</p>
           <p className="mt-4">
-            Aquí está todo lo que acordamos cuando haces una web con nosotros. Cada propuesta
-            concreta (precio, plazo y contenido) se te envía por escrito y la aceptas online antes
-            de empezar.
+            Aquí está todo lo que acordamos cuando hago tu web. Cada propuesta concreta (precio,
+            plazo y contenido) te la envío por escrito y la aceptas online antes de empezar.
           </p>
         </div>
 
         <div className="space-y-3">
           <h2 className="text-xl font-semibold text-dark">1. Quién presta el servicio</h2>
           <p>
-            Álvaro Ramírez Bolea, que opera bajo el nombre comercial ORVEX Agency. Puedes
-            escribirnos a <strong>aramirezbolea@gmail.com</strong> o llamarnos al{" "}
+            Álvaro Ramírez Bolea, que opera bajo el nombre comercial ORVEX Agency. Trabajo solo,
+            así que hablas siempre directamente conmigo. Puedes escribirme a <strong>aramirezbolea@gmail.com</strong> o llamarme al{" "}
             <strong>{PHONE_DISPLAY}</strong>. Más datos en el{" "}
             <Link href="/aviso-legal" className="text-primary underline hover:text-primary-dark">
               aviso legal
@@ -38,17 +37,17 @@ export default function Condiciones() {
         </div>
 
         <div className="space-y-3">
-          <h2 className="text-xl font-semibold text-dark">2. Cómo trabajamos</h2>
+          <h2 className="text-xl font-semibold text-dark">2. Cómo trabajo</h2>
           <ol className="list-decimal pl-6 space-y-1">
             <li>Una llamada de unos 15 minutos para entender tu negocio. Es gratis.</li>
-            <li>Te enviamos la propuesta por escrito, con el precio cerrado y el plazo.</li>
+            <li>Te envío la propuesta por escrito, con el precio cerrado y el plazo.</li>
             <li>
-              Si la aceptas, te enseñamos un boceto de la web. Si el boceto no te convence, lo
+              Si la aceptas, te enseño un boceto de la web. Si el boceto no te convence, lo
               dejamos ahí y no pagas nada.
             </li>
-            <li>Construimos la web y te la enseñamos en un enlace de prueba.</li>
-            <li>Hacemos los ajustes que nos pidas (ver el punto 4).</li>
-            <li>Cuando das la web por buena, la pagas y la publicamos en tu dominio.</li>
+            <li>Construyo la web y te la enseño en un enlace de prueba.</li>
+            <li>Hago los ajustes que me pidas (ver el punto 4).</li>
+            <li>Cuando das la web por buena, la pagas y la publico en tu dominio.</li>
           </ol>
         </div>
 
@@ -71,10 +70,10 @@ export default function Condiciones() {
         <div className="space-y-3">
           <h2 className="text-xl font-semibold text-dark">4. Cambios antes de la entrega</h2>
           <p>
-            La web incluye <strong>{REVISION_ROUNDS} rondas de cambios</strong>. En cada ronda nos
+            La web incluye <strong>{REVISION_ROUNDS} rondas de cambios</strong>. En cada ronda me
             mandas todo lo que quieras ajustar (textos, colores, fotos, orden de las secciones…) y
-            lo aplicamos. Si después quieres algo que no estaba en la propuesta, como una página o
-            una función nueva, te lo presupuestamos antes y solo lo hacemos si lo apruebas.
+            lo aplico. Si después quieres algo que no estaba en la propuesta, como una página o
+            una función nueva, te lo presupuesto antes y solo lo hago si lo apruebas.
           </p>
         </div>
 
@@ -82,7 +81,7 @@ export default function Condiciones() {
           <h2 className="text-xl font-semibold text-dark">5. Plazos</h2>
           <p>
             Cada plan tiene un plazo orientativo que se concreta en la propuesta. Empieza a contar
-            cuando tenemos tus textos, fotos y logo. Si el contenido llega tarde, el plazo se
+            cuando tengo tus textos, fotos y logo. Si el contenido llega tarde, el plazo se
             mueve lo mismo.
           </p>
         </div>
@@ -90,8 +89,8 @@ export default function Condiciones() {
         <div className="space-y-3">
           <h2 className="text-xl font-semibold text-dark">6. Tus textos, fotos y logo</h2>
           <p>
-            Necesitas tener derecho a usar el contenido que nos pases. Si no tienes fotos propias,
-            usamos imágenes con licencia libre. Nunca copiamos textos ni imágenes de otras webs.
+            Necesitas tener derecho a usar el contenido que me pases. Si no tienes fotos propias,
+            uso imágenes con licencia libre. Nunca copio textos ni imágenes de otras webs.
           </p>
         </div>
 
@@ -102,10 +101,10 @@ export default function Condiciones() {
               <strong>El primer año del dominio está incluido.</strong> Se registra a tu nombre.
             </li>
             <li>
-              A partir del segundo año la renovación la pagas tú (unos 12 € al año). Te avisamos
+              A partir del segundo año la renovación la pagas tú (unos 12 € al año). Te aviso
               antes de que caduque.
             </li>
-            <li>Si ya tienes dominio, lo configuramos sin coste.</li>
+            <li>Si ya tienes dominio, lo configuro sin coste.</li>
           </ul>
         </div>
 
@@ -113,7 +112,7 @@ export default function Condiciones() {
           <h2 className="text-xl font-semibold text-dark">8. De quién es la web</h2>
           <p>
             Una vez pagada, <strong>la web y el dominio son tuyos</strong>. Si algún día dejas el
-            mantenimiento, te entregamos los archivos de la web y te ayudamos a llevarla a otro
+            mantenimiento, te entrego los archivos de la web y te ayudo a llevarla a otro
             alojamiento.
           </p>
         </div>
@@ -132,8 +131,8 @@ export default function Condiciones() {
             </li>
           </ul>
           <p>
-            Si un mes necesitas más tiempo, o un cambio grande como una sección nueva, te decimos
-            antes cuánto cuesta y solo lo hacemos si lo apruebas.
+            Si un mes necesitas más tiempo, o un cambio grande como una sección nueva, te digo
+            antes cuánto cuesta y solo lo hago si lo apruebas.
           </p>
         </div>
 
@@ -149,9 +148,9 @@ export default function Condiciones() {
         <div className="space-y-3">
           <h2 className="text-xl font-semibold text-dark">11. Posicionamiento en Google</h2>
           <p>
-            Preparamos la web para que Google la entienda bien y trabajamos para mejorar tu
-            visibilidad, pero nadie puede garantizar una posición concreta en Google, y nosotros
-            tampoco lo hacemos.
+            Preparo la web para que Google la entienda bien y trabajo para mejorar tu
+            visibilidad, pero nadie puede garantizar una posición concreta en Google, y yo
+            tampoco lo hago.
           </p>
         </div>
 
@@ -159,15 +158,15 @@ export default function Condiciones() {
           <h2 className="text-xl font-semibold text-dark">12. Oferta de lanzamiento</h2>
           <p>
             Los {LAUNCH_OFFER.spots} primeros clientes que aceptan una propuesta tienen un{" "}
-            {LAUNCH_OFFER.percent}% de descuento en el precio de la web. A cambio, nos das tu
-            opinión y nos dejas enseñar tu web en nuestro portfolio. La cuota mensual no cambia.
+            {LAUNCH_OFFER.percent}% de descuento en el precio de la web. A cambio, me das tu
+            opinión y me dejas enseñar tu web en mi portfolio. La cuota mensual no cambia.
           </p>
         </div>
 
         <div className="space-y-3">
           <h2 className="text-xl font-semibold text-dark">13. Tus datos</h2>
           <p>
-            Cómo tratamos tus datos personales está en la{" "}
+            Cómo trato tus datos personales está en la{" "}
             <Link href="/privacidad" className="text-primary underline hover:text-primary-dark">
               política de privacidad
             </Link>
