@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PHONE_DISPLAY } from "@/lib/contact";
 import { LAUNCH_OFFER } from "@/lib/plans";
 import {
+  FREE_MAINTENANCE_DAYS,
   MONTHLY_CHANGES,
   NOT_SMALL_CHANGES,
   REVISION_ROUNDS,
@@ -65,8 +66,9 @@ export default function Condiciones() {
               cuando ya la has visto terminada.
             </li>
             <li>
-              Si tu plan lleva mantenimiento, ese mismo día pagas también el primer mes. A partir de
-              ahí la cuota se cobra sola cada mes en la misma tarjeta (ver los puntos 9 y 10).
+              Si tu plan lleva mantenimiento, <strong>el primer mes es gratis</strong>. La primera
+              cuota se cobra {FREE_MAINTENANCE_DAYS} días después de pagar la web, en la misma
+              tarjeta, y a partir de ahí cada mes (ver los puntos 9 y 10).
             </li>
             <li>Puedes pagar con tarjeta, Apple Pay o Google Pay, a través de Stripe.</li>
             <li>
@@ -136,8 +138,9 @@ export default function Condiciones() {
         <div id="mantenimiento" className="space-y-3 scroll-mt-24">
           <h2 className="text-xl font-semibold text-dark">9. Mantenimiento mensual</h2>
           <p>
-            La cuota mensual de tu plan empieza cuando pagas la web: el primer mes se paga junto con
-            ella y después se cobra automáticamente cada mes en la misma tarjeta. Incluye:
+            El mantenimiento empieza cuando pagas la web y el primer mes es gratis. La primera
+            cuota se cobra {FREE_MAINTENANCE_DAYS} días después, en la misma tarjeta con la que
+            pagaste la web, y después cada mes de forma automática. Incluye:
           </p>
           <ul className="list-disc pl-6 space-y-1">
             <li>Alojamiento (hosting) de la web y certificado SSL.</li>

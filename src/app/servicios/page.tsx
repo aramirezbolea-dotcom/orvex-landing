@@ -265,7 +265,7 @@ export default async function Servicios() {
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
               Todos los planes incluyen hosting, certificado SSL y
-              mantenimiento mensual. Sin sorpresas.
+              mantenimiento mensual, con el primer mes gratis. Sin sorpresas.
             </p>
           </div>
 
@@ -341,7 +341,7 @@ export default async function Servicios() {
                     <span className="text-sm opacity-70">único</span>
                   </div>
                   <div className="text-sm opacity-80 mt-1">
-                    + {plan.monthly}€/mes mantenimiento
+                    + {plan.monthly}€/mes mantenimiento (primer mes gratis)
                   </div>
                   <div className="text-xs opacity-70">
                     Incluye hasta {MONTHLY_CHANGES} cambios pequeños al mes
