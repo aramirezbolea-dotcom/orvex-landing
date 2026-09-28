@@ -4,7 +4,7 @@ import { MONTHLY_CHANGES, REVISION_ROUNDS } from "@/lib/terms";
 const questions = [
   {
     q: "¿Cuándo pago la web?",
-    a: "Al entregarla. No pagas nada por adelantado: primero ves la web terminada en un enlace de prueba y, cuando te parece bien, la pagas y la publico en tu dominio. Puedes pagar con tarjeta, Apple Pay o Google Pay.",
+    a: "Al entregarla. No pagas nada por adelantado: primero ves la web terminada en un enlace de prueba y, cuando te parece bien, la pagas y la publico en tu dominio. Puedes pagar con tarjeta, Apple Pay o Google Pay. Si tu plan lleva mantenimiento, ese día pagas también el primer mes, y después la cuota se cobra sola cada mes en la misma tarjeta.",
   },
   {
     q: "¿Y si no me gusta?",
@@ -24,7 +24,7 @@ const questions = [
   },
   {
     q: "¿Puedo dejar el mantenimiento?",
-    a: "Sí, cuando quieras y sin permanencia. La baja se aplica al final del mes pagado, y te entrego los archivos de tu web para que puedas llevarla a otro sitio.",
+    a: "Sí, cuando quieras y sin permanencia. La baja se aplica al final del mes pagado y desde entonces no se te cobra más. Te entrego los archivos de tu web para que puedas llevarla a otro sitio.",
   },
   {
     q: "¿Cuánto tardas?",

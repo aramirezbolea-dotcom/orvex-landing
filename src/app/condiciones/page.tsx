@@ -64,6 +64,10 @@ export default function Condiciones() {
               <strong>No pagas nada por adelantado.</strong> La web se paga entera al entregarla,
               cuando ya la has visto terminada.
             </li>
+            <li>
+              Si tu plan lleva mantenimiento, ese mismo día pagas también el primer mes. A partir de
+              ahí la cuota se cobra sola cada mes en la misma tarjeta (ver los puntos 9 y 10).
+            </li>
             <li>Puedes pagar con tarjeta, Apple Pay o Google Pay, a través de Stripe.</li>
             <li>
               La web se publica en tu dominio una vez pagada. Hasta entonces la puedes ver y
@@ -132,7 +136,8 @@ export default function Condiciones() {
         <div id="mantenimiento" className="space-y-3 scroll-mt-24">
           <h2 className="text-xl font-semibold text-dark">9. Mantenimiento mensual</h2>
           <p>
-            La cuota mensual de tu plan empieza cuando la web se publica. Incluye:
+            La cuota mensual de tu plan empieza cuando pagas la web: el primer mes se paga junto con
+            ella y después se cobra automáticamente cada mes en la misma tarjeta. Incluye:
           </p>
           <ul className="list-disc pl-6 space-y-1">
             <li>Alojamiento (hosting) de la web y certificado SSL.</li>
@@ -173,8 +178,9 @@ export default function Condiciones() {
         <div className="space-y-3">
           <h2 className="text-xl font-semibold text-dark">10. Sin permanencia</h2>
           <p>
-            Puedes cancelar el mantenimiento cuando quieras, sin penalización. La baja se aplica al
-            final del mes que ya has pagado. La web y el dominio siguen siendo tuyos (ver el punto
+            Puedes cancelar el mantenimiento cuando quieras, sin penalización: basta con decírmelo
+            por WhatsApp o email. La baja se aplica al final del mes que ya has pagado y desde
+            entonces no se te vuelve a cobrar. La web y el dominio siguen siendo tuyos (ver el punto
             8).
           </p>
         </div>
