@@ -20,8 +20,7 @@ import {
   Code,
   Lock,
   CalendarClock,
-  ShoppingCart,
-  Bot,
+  PenLine,
   Database,
 } from "lucide-react";
 import { PLANS, euros } from "@/lib/plans";
@@ -220,36 +219,32 @@ const allFeatures = [
   },
 ];
 
+// Only extras that can be delivered for sure. Kept in step with the admin
+// platform (src/lib/extras.ts there).
 const addOns = [
-  {
-    icon: ShoppingCart,
-    title: "Tienda online ampliada",
-    price: "Desde 300€",
-    desc: "Más de 50 productos, variantes, inventario.",
-  },
   {
     icon: CalendarClock,
     title: "Sistema de reservas",
     price: "Desde 200€",
-    desc: "Calendario con citas, recordatorios automáticos.",
+    desc: "Tus clientes eligen día y hora desde la web y te llega un aviso con la cita.",
   },
   {
     icon: Database,
-    title: "Migración de datos",
+    title: "Migración de tu web antigua",
     price: "Desde 150€",
-    desc: "Paso tu web antigua al nuevo sistema.",
+    desc: "Paso tus textos y fotos a la web nueva y redirijo las direcciones antiguas para no perder las visitas que llegan desde Google.",
   },
   {
     icon: Search,
     title: "Seguimiento SEO mensual",
-    price: "Desde 49€/mes",
-    desc: "Reviso cada mes cómo te encuentra Google, te mando un informe y aplico mejoras.",
+    price: "49€/mes",
+    desc: "Cada mes reviso cómo te encuentra Google, corrijo lo que falle y te mando un resumen. Sin garantizar posiciones.",
   },
   {
-    icon: Bot,
-    title: "Chatbot IA",
-    price: "Desde 250€",
-    desc: "Asistente virtual para resolver dudas de tus clientes 24/7.",
+    icon: PenLine,
+    title: "Redacción de textos",
+    price: "Desde 100€",
+    desc: "Si no tienes los textos de tu web, los escribo yo a partir de una llamada contigo.",
   },
 ];
 
@@ -453,7 +448,7 @@ export default async function Servicios() {
             </p>
           </div>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {addOns.map((addon) => (
               <div
                 key={addon.title}
