@@ -2,7 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PHONE_DISPLAY } from "@/lib/contact";
 import { LAUNCH_OFFER } from "@/lib/plans";
-import { MAINTENANCE_HOURS, REVISION_ROUNDS } from "@/lib/terms";
+import {
+  MONTHLY_CHANGES,
+  NOT_SMALL_CHANGES,
+  REVISION_ROUNDS,
+  SMALL_CHANGE_EXAMPLES,
+} from "@/lib/terms";
 
 export const metadata: Metadata = {
   title: "Condiciones del servicio — ORVEX Agency",
@@ -124,7 +129,7 @@ export default function Condiciones() {
           </p>
         </div>
 
-        <div className="space-y-3">
+        <div id="mantenimiento" className="space-y-3 scroll-mt-24">
           <h2 className="text-xl font-semibold text-dark">9. Mantenimiento mensual</h2>
           <p>
             La cuota mensual de tu plan empieza cuando la web se publica. Incluye:
@@ -133,13 +138,35 @@ export default function Condiciones() {
             <li>Alojamiento (hosting) de la web y certificado SSL.</li>
             <li>Actualizaciones de seguridad y vigilancia de que la web funciona.</li>
             <li>
-              <strong>Hasta {MAINTENANCE_HOURS} hora de cambios al mes</strong>: textos, fotos,
-              horarios, precios, un aviso nuevo… Las horas que no uses no se acumulan.
+              <strong>Hasta {MONTHLY_CHANGES} cambios pequeños al mes.</strong> Los que no uses no
+              se acumulan para el mes siguiente.
             </li>
           </ul>
           <p>
-            Si un mes necesitas más tiempo, o un cambio grande como una sección nueva, te digo
-            antes cuánto cuesta y solo lo hago si lo apruebas.
+            <strong>Un cambio pequeño es una sola modificación de algo que ya está en tu web.</strong>{" "}
+            Por ejemplo, cada una de estas cosas es un cambio:
+          </p>
+          <ul className="list-disc pl-6 space-y-1">
+            {SMALL_CHANGE_EXAMPLES.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <p>
+            Cada cosa que me pidas cuenta por separado: si en un mismo mensaje me pides cambiar
+            el horario y poner un aviso de vacaciones, son 2 cambios.
+          </p>
+          <p>
+            <strong>No son cambios pequeños</strong>, y te los presupuesto aparte:
+          </p>
+          <ul className="list-disc pl-6 space-y-1">
+            {NOT_SMALL_CHANGES.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+          <p>
+            Pídeme los cambios por escrito, por WhatsApp o email. Si no está claro si algo es un
+            cambio pequeño, o si un mes necesitas más de {MONTHLY_CHANGES}, te digo antes cuánto
+            cuesta y solo lo hago si lo apruebas.
           </p>
         </div>
 

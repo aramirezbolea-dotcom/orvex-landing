@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MAINTENANCE_HOURS, REVISION_ROUNDS } from "@/lib/terms";
+import { MONTHLY_CHANGES, REVISION_ROUNDS } from "@/lib/terms";
 
 const questions = [
   {
@@ -16,7 +16,11 @@ const questions = [
   },
   {
     q: "¿Qué incluye el mantenimiento mensual?",
-    a: `El alojamiento de la web, el certificado SSL, las actualizaciones de seguridad y hasta ${MAINTENANCE_HOURS} hora de cambios al mes: textos, fotos, horarios, precios… Si un mes necesitas más, te digo antes cuánto cuesta.`,
+    a: `El alojamiento de la web, el certificado SSL, las actualizaciones de seguridad y hasta ${MONTHLY_CHANGES} cambios pequeños al mes. Si un mes necesitas más, te digo antes cuánto cuesta.`,
+  },
+  {
+    q: "¿Qué es un cambio pequeño?",
+    a: "Una sola modificación de algo que ya está en tu web: cambiar un horario o un teléfono, actualizar los precios de una lista (hasta 10), cambiar una foto o añadir hasta 5 a una galería, cambiar un párrafo de texto, o poner o quitar un aviso de vacaciones. Cada cosa cuenta por separado. Crear una página nueva, reescribir una página entera o cambiar el diseño no son cambios pequeños: te los presupuesto aparte.",
   },
   {
     q: "¿Puedo dejar el mantenimiento?",

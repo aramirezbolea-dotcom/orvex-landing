@@ -25,7 +25,7 @@ import {
 } from "lucide-react";
 import { PLANS, euros } from "@/lib/plans";
 import { currentPrice, getLaunchOffer, spotsLeftText } from "@/lib/launch-offer";
-import { MAINTENANCE_HOURS } from "@/lib/terms";
+import { MONTHLY_CHANGES } from "@/lib/terms";
 import Faq from "@/components/faq";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -200,7 +200,7 @@ const allFeatures = [
   {
     icon: RefreshCw,
     title: "Mantenimiento",
-    desc: `Actualizaciones de seguridad y hasta ${MAINTENANCE_HOURS} h de cambios al mes incluidas en la cuota.`,
+    desc: `Actualizaciones de seguridad y hasta ${MONTHLY_CHANGES} cambios pequeños al mes (un horario, un precio, una foto…) incluidos en la cuota.`,
   },
   {
     icon: ShieldCheck,
@@ -344,7 +344,7 @@ export default async function Servicios() {
                     + {plan.monthly}€/mes mantenimiento
                   </div>
                   <div className="text-xs opacity-70">
-                    Incluye hasta {MAINTENANCE_HOURS} h de cambios al mes
+                    Incluye hasta {MONTHLY_CHANGES} cambios pequeños al mes
                   </div>
                 </div>
 
