@@ -5,6 +5,10 @@ export const REVISION_ROUNDS = 2;
 // reads, so they say exactly what counts and what doesn't.
 export const MONTHLY_CHANGES = 3;
 
+// The first month of maintenance is free: the first monthly fee is charged
+// this many days after the web is paid. Same value as the admin platform.
+export const FREE_MAINTENANCE_DAYS = 30;
+
 export const SMALL_CHANGE_EXAMPLES = [
   "Cambiar un horario, un teléfono, un email o una dirección.",
   "Actualizar los precios de una lista o tabla (hasta 10 precios).",
