@@ -9,6 +9,10 @@ export const MONTHLY_CHANGES = 3;
 // this many days after the web is paid. Same value as the admin platform.
 export const FREE_MAINTENANCE_DAYS = 30;
 
+// If a monthly fee cannot be charged, hosting can be suspended this many days
+// after telling the client, until it is paid. Same value as the platform.
+export const UNPAID_GRACE_DAYS = 15;
+
 export const SMALL_CHANGE_EXAMPLES = [
   "Cambiar un horario, un teléfono, un email o una dirección.",
   "Actualizar los precios de una lista o tabla (hasta 10 precios).",

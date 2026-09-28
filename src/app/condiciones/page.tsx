@@ -5,6 +5,7 @@ import { LAUNCH_OFFER } from "@/lib/plans";
 import {
   FREE_MAINTENANCE_DAYS,
   MONTHLY_CHANGES,
+  UNPAID_GRACE_DAYS,
   NOT_SMALL_CHANGES,
   REVISION_ROUNDS,
   SMALL_CHANGE_EXAMPLES,
@@ -185,6 +186,13 @@ export default function Condiciones() {
             por WhatsApp o email. La baja se aplica al final del mes que ya has pagado y desde
             entonces no se te vuelve a cobrar. La web y el dominio siguen siendo tuyos (ver el punto
             8).
+          </p>
+          <p>
+            <strong>Si una cuota no se puede cobrar</strong> (tarjeta caducada o rechazada), te aviso
+            por WhatsApp o email y Stripe vuelve a intentarlo durante unos días. Si a los{" "}
+            {UNPAID_GRACE_DAYS} días del aviso sigue sin pagarse, suspendo el alojamiento de la web
+            hasta que se pague y la vuelvo a activar el mismo día del pago. La web sigue siendo tuya:
+            si prefieres llevártela a otro sitio, te entrego los archivos.
           </p>
         </div>
 

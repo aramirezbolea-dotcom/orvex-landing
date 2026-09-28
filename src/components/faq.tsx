@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FREE_MAINTENANCE_DAYS, MONTHLY_CHANGES, REVISION_ROUNDS } from "@/lib/terms";
+import { FREE_MAINTENANCE_DAYS, MONTHLY_CHANGES, REVISION_ROUNDS, UNPAID_GRACE_DAYS } from "@/lib/terms";
 
 const questions = [
   {
@@ -25,6 +25,10 @@ const questions = [
   {
     q: "¿Puedo dejar el mantenimiento?",
     a: "Sí, cuando quieras y sin permanencia. La baja se aplica al final del mes pagado y desde entonces no se te cobra más. Te entrego los archivos de tu web para que puedas llevarla a otro sitio.",
+  },
+  {
+    q: "¿Y si un mes no se puede cobrar la cuota?",
+    a: `Te aviso para que revises la tarjeta. Si a los ${UNPAID_GRACE_DAYS} días sigue sin pagarse, suspendo el alojamiento hasta que se pague y la vuelvo a activar el mismo día. La web sigue siendo tuya en todo momento.`,
   },
   {
     q: "¿Cuánto tardas?",
