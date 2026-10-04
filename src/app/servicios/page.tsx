@@ -257,7 +257,7 @@ const addOns = [
     icon: PenLine,
     title: "Redacción de textos",
     price: "Desde 100€",
-    desc: "Si no tienes los textos de tu web, los escribo yo a partir de una llamada contigo.",
+    desc: "Si no tienes los textos de tu web, los escribo yo a partir de una llamada contigo, solo con lo que me cuentes. Incluye hasta 5 páginas o secciones y una revisión; si tu web es más grande, te lo presupuesto antes.",
   },
 ];
 
