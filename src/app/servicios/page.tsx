@@ -22,6 +22,7 @@ import {
   CalendarClock,
   PenLine,
   Database,
+  ChevronDown,
 } from "lucide-react";
 import { PLANS, euros } from "@/lib/plans";
 import { currentPrice, getLaunchOffer, spotsLeftText } from "@/lib/launch-offer";
@@ -161,61 +162,73 @@ const allFeatures = [
     icon: Globe,
     title: "Dominio propio",
     desc: "El primer año de tu .es o .com está incluido y va a tu nombre. Si ya tienes uno, lo configuro.",
+    more: "Es la dirección de tu web en internet, por ejemplo tunegocio.es. La registro a tu nombre y el primer año va incluido; después la renovación son unos 12 € al año.",
   },
   {
     icon: Palette,
     title: "Diseño adaptado a ti",
     desc: "Parto de un diseño ya probado y lo adapto a tu negocio: tus colores, tu logo, tus fotos y tus textos.",
+    more: "No empiezo de cero ni te meto en una plantilla igual a la de otros. Parto de un diseño que ya funciona y lo dejo con la imagen de tu negocio, antes de enseñártelo.",
   },
   {
     icon: Smartphone,
     title: "Responsive",
     desc: "Todas las webs se ven perfectas en móvil, tablet y escritorio.",
+    more: "Quiere decir que la web se adapta sola al tamaño de la pantalla. Se lee y se maneja igual de bien en el móvil, en una tablet o en el ordenador.",
   },
   {
     icon: Search,
     title: "SEO",
     desc: "Optimización para Google desde el primer día. Que te encuentren tus clientes.",
+    more: "Es preparar la web para que Google entienda de qué va: títulos, descripciones, fotos con texto y una carga rápida. Ayuda a que te encuentren, pero nadie puede garantizar salir el primero.",
   },
   {
     icon: Server,
     title: "Hosting",
     desc: "Hosting incluido en todos los planes. No tienes que preocuparte de nada.",
+    more: "Es el lugar donde vive tu web para que cualquiera pueda abrirla a cualquier hora. Yo me ocupo de contratarlo y de que esté siempre funcionando.",
   },
   {
     icon: Lock,
     title: "SSL",
     desc: "Certificado de seguridad incluido. Tu web siempre con el candado verde.",
+    more: "Es el candado que ves junto a la dirección de la web. Hace que los datos que se envían, como un formulario de contacto, viajen cifrados, y evita el aviso de «web no segura».",
   },
   {
     icon: BarChart3,
     title: "Estadísticas",
     desc: "Ves cuántas personas visitan tu web y de dónde vienen, sin cookies y sin banner molesto.",
+    more: "Un resumen de cuánta gente entra en tu web, cuáles son las páginas más vistas y desde dónde llegan. No usa cookies, así que no hace falta banner de cookies.",
   },
   {
     icon: Headphones,
     title: "Soporte",
     desc: "Hablas directamente conmigo por email, WhatsApp o teléfono. Respondo en menos de 24 horas laborables.",
+    more: "Si tienes una duda o algo no funciona, me escribes o me llamas a mí directamente. Te contesto en menos de 24 horas laborables.",
   },
   {
     icon: RefreshCw,
     title: "Mantenimiento",
     desc: `Actualizaciones de seguridad y hasta ${MONTHLY_CHANGES} cambios pequeños al mes (un horario, un precio, una foto…) incluidos en la cuota.`,
+    more: "Me encargo de que tu web siga segura y funcionando, y de hacerte los cambios pequeños del día a día. Si necesitas algo más grande, te digo antes cuánto cuesta.",
   },
   {
     icon: ShieldCheck,
     title: "Legal (RGPD)",
     desc: "Aviso legal y política de privacidad de tu web. Sin cookies de seguimiento, así que no necesitas banner de cookies.",
+    more: "Las webs necesitan por ley un aviso legal y una política de privacidad. Te los preparo con los datos de tu negocio y tú compruebas que estén bien.",
   },
   {
     icon: Zap,
     title: "Velocidad",
     desc: "Optimizadas para cargar rápido en el móvil. Antes de entregarla te enseño su nota en Google PageSpeed.",
+    more: "Una web lenta hace que la gente se vaya antes de verla. La preparo para que cargue rápido en el móvil y te enseño la nota que le pone Google antes de entregarla.",
   },
   {
     icon: Code,
     title: "Tecnología moderna",
     desc: "Next.js, React, Tailwind CSS. Tu web con la mejor tecnología del mercado.",
+    more: "Es con lo que está construida la web por dentro. Son herramientas actuales y muy usadas, por eso la web es rápida, segura y fácil de seguir mejorando en el futuro.",
   },
 ];
 
@@ -414,22 +427,32 @@ export default async function Servicios() {
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-center text-gray-600">
             Sea cual sea tu plan, siempre tendrás estas funcionalidades base.
+            Pulsa en cada una para ver qué es.
           </p>
 
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
             {allFeatures.map((feat) => (
-              <div
+              <details
                 key={feat.title}
-                className="flex items-start gap-3 border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow"
+                className="group self-start rounded-lg border border-gray-200 transition-shadow hover:shadow-md open:shadow-md"
               >
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <feat.icon className="w-[18px] h-[18px]" strokeWidth={1.75} />
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-dark">{feat.title}</p>
-                  <p className="text-xs text-gray-500 mt-0.5">{feat.desc}</p>
-                </div>
-              </div>
+                <summary className="flex cursor-pointer list-none items-start gap-3 p-4 [&::-webkit-details-marker]:hidden">
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                    <feat.icon className="w-[18px] h-[18px]" strokeWidth={1.75} />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-medium text-dark">{feat.title}</p>
+                    <p className="text-xs text-gray-500 mt-0.5">{feat.desc}</p>
+                  </div>
+                  <ChevronDown
+                    aria-hidden="true"
+                    className="mt-0.5 h-4 w-4 shrink-0 text-gray-400 transition-transform group-open:rotate-180"
+                  />
+                </summary>
+                <p className="border-t border-gray-100 px-4 py-3 text-xs leading-relaxed text-gray-600">
+                  {feat.more}
+                </p>
+              </details>
             ))}
           </div>
         </div>
