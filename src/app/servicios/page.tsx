@@ -245,7 +245,7 @@ const addOns = [
     icon: Database,
     title: "Migración de tu web antigua",
     price: "Desde 150€",
-    desc: "Paso tus textos y fotos a la web nueva y redirijo las direcciones antiguas para no perder las visitas que llegan desde Google.",
+    desc: "Si ya tienes web, recojo yo los textos y las fotos de la antigua, los coloco en la nueva y redirijo las direcciones viejas para no perder las visitas que llegan desde Google.",
   },
   {
     icon: Search,
