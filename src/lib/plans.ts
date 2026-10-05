@@ -1,4 +1,4 @@
-export const LAUNCH_OFFER = { percent: 30, spots: 5 };
+export const LAUNCH_OFFER = { percent: 30, spots: 3 };
 
 export const PLANS = {
   STARTER: { name: "Starter", price: 500, monthly: 39 },
