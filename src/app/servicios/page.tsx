@@ -157,6 +157,9 @@ const plans = [
   },
 ];
 
+// Shown in the SEO card and in the extras list.
+const SEO_FOLLOWUP_PRICE = "49€/mes";
+
 const allFeatures = [
   {
     icon: Globe,
@@ -180,7 +183,15 @@ const allFeatures = [
     icon: Search,
     title: "SEO",
     desc: "Optimización para Google desde el primer día. Que te encuentren tus clientes.",
-    more: "Es preparar la web para que Google entienda de qué va: títulos, descripciones, fotos con texto y una carga rápida. Ayuda a que te encuentren, pero nadie puede garantizar salir el primero.",
+    more: "Es preparar la web para que Google entienda de qué va. Esto es lo que lleva cada plan:",
+    items: [
+      "Starter: SEO básico. Títulos, descripciones y sitemap.",
+      "Professional: SEO avanzado. Palabras clave, datos estructurados y velocidad, más Google Search Console.",
+      "Premium: SEO avanzado y Google Search Console.",
+      "Custom: SEO completo.",
+    ],
+    moreEnd: `Ayuda a que te encuentren, pero nadie puede garantizar salir el primero. Si después quieres más, hay un extra de seguimiento SEO mensual (${SEO_FOLLOWUP_PRICE}).`,
+    moreLink: { text: "Ver extras", href: "#extras" },
   },
   {
     icon: Server,
@@ -250,7 +261,7 @@ const addOns = [
   {
     icon: Search,
     title: "Seguimiento SEO mensual",
-    price: "49€/mes",
+    price: SEO_FOLLOWUP_PRICE,
     desc: "Cada mes reviso cómo te encuentra Google, corrijo lo que falle y te mando un resumen. Sin garantizar posiciones.",
   },
   {
@@ -449,9 +460,22 @@ export default async function Servicios() {
                     className="mt-0.5 h-4 w-4 shrink-0 text-gray-400 transition-transform group-open:rotate-180"
                   />
                 </summary>
-                <p className="border-t border-gray-100 px-4 py-3 text-xs leading-relaxed text-gray-600">
-                  {feat.more}
-                </p>
+                <div className="space-y-2 border-t border-gray-100 px-4 py-3 text-xs leading-relaxed text-gray-600">
+                  <p>{feat.more}</p>
+                  {feat.items && (
+                    <ul className="list-disc space-y-1 pl-4">
+                      {feat.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                  {feat.moreEnd && <p>{feat.moreEnd}</p>}
+                  {feat.moreLink && (
+                    <a href={feat.moreLink.href} className="inline-block font-medium text-primary hover:underline">
+                      {feat.moreLink.text} →
+                    </a>
+                  )}
+                </div>
               </details>
             ))}
           </div>
@@ -459,7 +483,7 @@ export default async function Servicios() {
       </section>
 
       {/* Extras opcionales */}
-      <section className="bg-gray-50 py-20 sm:py-28">
+      <section id="extras" className="scroll-mt-20 bg-gray-50 py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
             <h2 className="text-2xl font-bold text-dark sm:text-3xl">
