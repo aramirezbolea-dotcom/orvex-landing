@@ -37,7 +37,7 @@ export default function Footer() {
                   href="/portfolio"
                   className="hover:text-white transition-colors"
                 >
-                  Portfolio
+                  Webs y diseños
                 </Link>
               </li>
               <li>
