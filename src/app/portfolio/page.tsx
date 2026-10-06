@@ -4,7 +4,7 @@ import { PLANS, euros } from "@/lib/plans";
 import { currentPrice, getLaunchOffer } from "@/lib/launch-offer";
 
 export const metadata: Metadata = {
-  title: "Portfolio — ORVEX Agency",
+  title: "Webs y diseños — ORVEX Agency",
   description:
     "Webs de ejemplo de cada plan, desde una landing page hasta un desarrollo completo a medida.",
 };
@@ -53,10 +53,10 @@ export default async function Portfolio() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
             <p className="text-sm font-semibold tracking-widest text-primary uppercase">
-              Webs de ejemplo
+              Un ejemplo para cada plan
             </p>
             <h1 className="mt-3 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">
-              Portfolio
+              Webs y diseños
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
               He hecho una web de ejemplo para cada plan, con negocios
