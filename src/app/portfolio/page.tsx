@@ -30,9 +30,9 @@ const projects = [
     plan: "PREMIUM",
     title: "Estudio Ávila — Arquitectura e interiorismo",
     description:
-      "Web de autor para un estudio de arquitectura en Madrid: una página por servicio, fichas detalladas de proyectos, equipo y blog.",
+      "Web de autor para un estudio de arquitectura en Madrid: una página por servicio, fichas detalladas de proyectos, equipo, blog y una tienda online con carrito y pedido de ejemplo.",
     url: "https://orvex1500.netlify.app",
-    tags: ["Diseño premium", "Portfolio de proyectos", "Blog"],
+    tags: ["Diseño premium", "Tienda online", "Blog"],
   },
   {
     plan: "CUSTOM",
