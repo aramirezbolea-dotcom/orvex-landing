@@ -22,9 +22,9 @@ const projects = [
     plan: "PROFESSIONAL",
     title: "Reformas Castillo — Web corporativa",
     description:
-      "La misma empresa con web completa: páginas de servicios, proyectos, nosotros y contacto, más un blog con artículos pensados para posicionar en Google.",
+      "La misma empresa con web completa: páginas de servicios, proyectos, nosotros y contacto, un blog con artículos pensados para posicionar en Google y reserva online de visitas: el cliente elige qué quiere reformar, el día y la hora.",
     url: "https://orvex800.netlify.app",
-    tags: ["Multipágina", "Blog", "SEO"],
+    tags: ["Multipágina", "Reservas online", "Blog", "SEO"],
   },
   {
     plan: "PREMIUM",
