@@ -3,6 +3,7 @@ import { getLaunchOffer, spotsLeftText } from "@/lib/launch-offer";
 import { REVISION_ROUNDS } from "@/lib/terms";
 import { WHATSAPP_URL } from "@/lib/contact";
 import WhatsAppIcon from "@/components/whatsapp-icon";
+import HeroVideo from "@/components/hero-video";
 
 const steps = [
   {
@@ -30,7 +31,7 @@ export default async function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-white to-accent/5">
-        <div className="mx-auto max-w-6xl px-4 py-24 sm:py-32 lg:py-40">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-20 sm:py-28 lg:grid-cols-[minmax(0,1fr)_minmax(0,32rem)] lg:gap-14 lg:py-32">
           <div className="max-w-3xl">
             {offer.active && (
               <Link
@@ -54,7 +55,7 @@ export default async function Home() {
             <p className="text-sm font-semibold tracking-widest text-primary uppercase">
               Diseño web para negocios
             </p>
-            <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-dark sm:text-5xl lg:text-6xl">
+            <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-dark sm:text-5xl lg:text-5xl xl:text-6xl">
               Tu web profesional,{" "}
               <span className="text-primary">sin complicaciones</span>
             </h1>
@@ -78,6 +79,7 @@ export default async function Home() {
               </Link>
             </div>
           </div>
+          <HeroVideo />
         </div>
         <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-primary/5 blur-3xl" />
         <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
