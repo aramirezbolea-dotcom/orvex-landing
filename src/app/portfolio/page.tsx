@@ -44,6 +44,35 @@ const projects = [
   },
 ] as const;
 
+// Examples for the kind of business on the call list. `url: null` shows the
+// card as "Próximamente" until the demo is published.
+const businessExamples: {
+  sector: string;
+  title: string;
+  description: string;
+  tags: string[];
+  url: string | null;
+}[] = [
+  {
+    sector: "Peluquería",
+    title: "Maison Lumière — Peluquería boutique",
+    description:
+      "Web de una peluquería en Madrid: servicios, estilos, galería de trabajos, antes y después, equipo, precios y reserva de cita online eligiendo servicio, profesional, día y hora.",
+    tags: ["Reserva de cita online", "Galería", "Precios"],
+    url: null,
+  },
+];
+
+const externalIcon = (
+  <svg className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+    />
+  </svg>
+);
+
 export default async function Portfolio() {
   const offer = await getLaunchOffer();
 
@@ -60,8 +89,9 @@ export default async function Portfolio() {
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
               He hecho una web de ejemplo para cada plan, con negocios
-              inventados, para que veas qué recibes en cada uno. Pronto
-              estarán aquí las webs de mis primeros clientes.
+              inventados, para que veas qué recibes en cada uno. Más abajo
+              tienes ejemplos por tipo de negocio. Pronto estarán aquí las webs
+              de mis primeros clientes.
             </p>
           </div>
 
@@ -96,19 +126,7 @@ export default async function Portfolio() {
                     className="flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-dark transition-colors"
                   >
                     Ver en vivo
-                    <svg
-                      className="h-4 w-4"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
-                      />
-                    </svg>
+                    {externalIcon}
                   </a>
                 </div>
 
@@ -122,6 +140,64 @@ export default async function Portfolio() {
                   </p>
                   <div className="mt-4 flex flex-wrap gap-2">
                     {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* By kind of business */}
+          <div className="mt-24 text-center">
+            <p className="text-sm font-semibold tracking-widest text-primary uppercase">
+              Por tipo de negocio
+            </p>
+            <h2 className="mt-3 text-2xl font-bold text-dark sm:text-3xl">
+              Y para negocios como el tuyo
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-gray-600">
+              Ejemplos pensados para un sector concreto. Las reservas online
+              vienen incluidas desde el plan {PLANS.PROFESSIONAL.name}.
+            </p>
+          </div>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-6">
+            {businessExamples.map((example) => (
+              <div
+                key={example.title}
+                className="w-full overflow-hidden rounded-2xl border border-gray-200 bg-white transition-shadow hover:shadow-xl sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+              >
+                <div className="flex items-center justify-between border-b border-gray-100 bg-gray-light px-5 py-3">
+                  <span className="inline-flex rounded-lg bg-accent/10 px-3 py-1 text-xs font-bold text-dark">
+                    {example.sector}
+                  </span>
+                  {example.url ? (
+                    <a
+                      href={example.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary-dark transition-colors"
+                    >
+                      Ver en vivo
+                      {externalIcon}
+                    </a>
+                  ) : (
+                    <span className="text-sm font-medium text-gray-500">Próximamente</span>
+                  )}
+                </div>
+                <div className="p-5 text-left">
+                  <h3 className="text-lg font-bold text-dark">{example.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-600">
+                    {example.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {example.tags.map((tag) => (
                       <span
                         key={tag}
                         className="rounded-full bg-gray-100 px-3 py-1 text-xs font-medium text-gray-600"
