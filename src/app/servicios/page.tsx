@@ -33,7 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const offer = await getLaunchOffer();
   const from = euros(currentPrice(PLANS.STARTER.price, offer));
   return {
-    title: "Servicios — ORVEX Agency",
+    title: "Servicios — Vexel",
     description: `Planes de diseño web desde ${from}${offer.active ? " con la oferta de lanzamiento" : ""}. Landing pages, webs multipágina, tiendas online y desarrollo a medida.`,
   };
 }

@@ -27,16 +27,16 @@ export default function HeroVideo() {
       <video
         ref={ref}
         className="aspect-[8/5] w-full"
-        poster="/orvex-presentacion.jpg"
+        poster="/vexel-presentacion.jpg"
         muted
         loop
         playsInline
         preload="metadata"
-        aria-label="Vídeo de presentación de ORVEX: webs rápidas para negocios locales, desde 500 €"
+        aria-label="Vídeo de presentación de Vexel: webs rápidas para negocios locales, desde 500 €"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
       >
-        <source src="/orvex-presentacion.mp4" type="video/mp4" />
+        <source src="/vexel-presentacion.mp4" type="video/mp4" />
       </video>
       <button
         type="button"

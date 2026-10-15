@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Política de privacidad — ORVEX Agency",
+  title: "Política de privacidad — Vexel",
   description: "Cómo trato los datos personales que me facilitas a través de esta web.",
 };
 
@@ -17,7 +17,7 @@ export default function Privacidad() {
         <div className="space-y-3">
           <h2 className="text-xl font-semibold text-dark">1. Responsable del tratamiento</h2>
           <ul className="list-disc pl-6 space-y-1">
-            <li><strong>Responsable:</strong> Álvaro Ramírez Bolea (ORVEX Agency)</li>
+            <li><strong>Responsable:</strong> Álvaro Ramírez Bolea (Vexel)</li>
             <li><strong>Email:</strong> aramirezbolea@gmail.com</li>
           </ul>
         </div>

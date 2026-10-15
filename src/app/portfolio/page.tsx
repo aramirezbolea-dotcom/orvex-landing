@@ -4,7 +4,7 @@ import { PLANS, euros } from "@/lib/plans";
 import { currentPrice, getLaunchOffer } from "@/lib/launch-offer";
 
 export const metadata: Metadata = {
-  title: "Webs y diseños — ORVEX Agency",
+  title: "Webs y diseños — Vexel",
   description:
     "Webs de ejemplo de cada plan, desde una landing page hasta un desarrollo completo a medida.",
 };
@@ -15,7 +15,7 @@ const projects = [
     title: "Reformas Castillo — Landing",
     description:
       "Landing de una sola página para una empresa de reformas integrales en Madrid: servicios, proyectos, cifras clave y formulario para pedir presupuesto. El sistema de reservas se puede añadir como extra, desde 200€.",
-    url: "https://orvex500.netlify.app",
+    url: "https://vexel500.netlify.app",
     tags: ["Landing page", "Responsive", "Formulario", "Reservas como extra"],
   },
   {
@@ -23,7 +23,7 @@ const projects = [
     title: "Reformas Castillo — Web corporativa",
     description:
       "La misma empresa con web completa: páginas de servicios, proyectos, nosotros y contacto, un blog con artículos pensados para posicionar en Google y el sistema de reservas incluido: el cliente elige qué quiere reformar, el día y la hora.",
-    url: "https://orvex800.netlify.app",
+    url: "https://vexel800.netlify.app",
     tags: ["Multipágina", "Reservas incluidas", "Blog", "SEO"],
   },
   {
@@ -31,7 +31,7 @@ const projects = [
     title: "Estudio Ávila — Arquitectura e interiorismo",
     description:
       "Web de autor para un estudio de arquitectura en Madrid: una página por servicio, fichas detalladas de proyectos, equipo, blog y una tienda online con carrito y pedido de ejemplo.",
-    url: "https://orvex1500.netlify.app",
+    url: "https://vexel1500.netlify.app",
     tags: ["Diseño premium", "Tienda online", "Blog"],
   },
   {
@@ -39,7 +39,7 @@ const projects = [
     title: "Aether — Plataforma de gestión empresarial",
     description:
       "Web de producto para un software de gestión: CRM, analítica, automatización, tienda con checkout, dashboard, portal de clientes, casos de estudio y precios.",
-    url: "https://orvex2500.netlify.app",
+    url: "https://vexel2500.netlify.app",
     tags: ["SaaS", "Dashboard", "E-commerce", "Portal de clientes"],
   },
 ] as const;

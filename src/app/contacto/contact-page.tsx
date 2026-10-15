@@ -263,7 +263,7 @@ function ContactForm({ initialPlan, offer }: { initialPlan: PlanValue; offer: La
           </h3>
           <p className="mt-2 text-gray-600">
             Te responderé en menos de 24 horas. Gracias por confiar en
-            ORVEX.
+            Vexel.
           </p>
           <button
             onClick={() => setSuccess(false)}
@@ -423,7 +423,7 @@ function ContactForm({ initialPlan, offer }: { initialPlan: PlanValue; offer: La
           </button>
 
           <p className="text-xs text-gray-500 text-center leading-relaxed">
-            Responsable: Álvaro Ramírez Bolea (ORVEX Agency). Usaré tus
+            Responsable: Álvaro Ramírez Bolea (Vexel). Usaré tus
             datos solo para responder a tu solicitud y no los cederé a
             terceros. Puedes ejercer tus derechos escribiendo a
             aramirezbolea@gmail.com. Más información en la{" "}

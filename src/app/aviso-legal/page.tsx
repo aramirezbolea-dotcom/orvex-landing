@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Aviso legal — ORVEX Agency",
+  title: "Aviso legal — Vexel",
   description: "Información legal sobre el titular de este sitio web.",
 };
 
@@ -22,7 +22,7 @@ export default function AvisoLegal() {
             Comercio Electrónico (LSSI), se informa de que este sitio web pertenece a:
           </p>
           <ul className="list-disc pl-6 space-y-1">
-            <li><strong>Titular:</strong> Álvaro Ramírez Bolea, que opera bajo el nombre comercial ORVEX Agency</li>
+            <li><strong>Titular:</strong> Álvaro Ramírez Bolea, que opera bajo el nombre comercial Vexel</li>
             <li><strong>Actividad:</strong> diseño y desarrollo de páginas web</li>
             <li><strong>Email de contacto:</strong> aramirezbolea@gmail.com</li>
           </ul>
@@ -32,7 +32,7 @@ export default function AvisoLegal() {
           <h2 className="text-xl font-semibold text-dark">2. Objeto</h2>
           <p>
             Este sitio web tiene como finalidad informar sobre los servicios de diseño y desarrollo
-            web de ORVEX Agency y permitir que las personas interesadas soliciten información o un
+            web de Vexel y permitir que las personas interesadas soliciten información o un
             presupuesto sin compromiso.
           </p>
         </div>
