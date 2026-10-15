@@ -85,12 +85,12 @@ export default async function Home() {
         <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-accent/5 blur-3xl" />
       </section>
 
-      {/* Qué es ORVEX */}
+      {/* Qué es Vexel */}
       <section className="bg-white py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
             <h2 className="text-3xl font-bold text-dark sm:text-4xl">
-              ¿Por qué <span className="text-primary">ORVEX</span>?
+              ¿Por qué <span className="text-primary">Vexel</span>?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
               Trabajo solo, y eso juega a tu favor: hablas siempre directamente
@@ -208,7 +208,7 @@ export default async function Home() {
             </p>
             <h2 className="mt-2 text-3xl font-bold text-dark">Hola, soy Álvaro Ramírez</h2>
             <p className="mt-4 leading-relaxed text-gray-600">
-              ORVEX soy yo. Hago webs para negocios que quieren estar bien presentados en
+              Vexel soy yo. Hago webs para negocios que quieren estar bien presentados en
               internet sin complicarse. Trabajo solo, así que hablas siempre conmigo: desde la
               primera llamada hasta que tu web está publicada, y también después, cuando necesitas
               cambiar algo.

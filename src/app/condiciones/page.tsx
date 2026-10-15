@@ -12,7 +12,7 @@ import {
 } from "@/lib/terms";
 
 export const metadata: Metadata = {
-  title: "Condiciones del servicio — ORVEX Agency",
+  title: "Condiciones del servicio — Vexel",
   description:
     "Cómo trabajo, cuándo se paga, qué incluye el mantenimiento y de quién es la web y el dominio.",
 };
@@ -33,7 +33,7 @@ export default function Condiciones() {
         <div className="space-y-3">
           <h2 className="text-xl font-semibold text-dark">1. Quién presta el servicio</h2>
           <p>
-            Álvaro Ramírez Bolea, que opera bajo el nombre comercial ORVEX Agency. Trabajo solo,
+            Álvaro Ramírez Bolea, que opera bajo el nombre comercial Vexel. Trabajo solo,
             así que hablas siempre directamente conmigo. Puedes escribirme a <strong>aramirezbolea@gmail.com</strong> o llamarme al{" "}
             <strong>{PHONE_DISPLAY}</strong>. Más datos en el{" "}
             <Link href="/aviso-legal" className="text-primary underline hover:text-primary-dark">

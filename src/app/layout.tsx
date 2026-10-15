@@ -8,7 +8,7 @@ import WhatsAppButton from "@/components/whatsapp-button";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ORVEX Agency — Diseño y Desarrollo Web Profesional",
+  title: "Vexel — Diseño y Desarrollo Web Profesional",
   description:
     "Diseño web para negocios, sin intermediarios: landing pages, webs multipágina, tiendas online y desarrollo a medida, con mantenimiento incluido.",
 };

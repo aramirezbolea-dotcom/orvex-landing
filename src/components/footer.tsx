@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Logo from "@/components/logo";
 import { PHONE_DISPLAY, PHONE_TEL, WHATSAPP_URL } from "@/lib/contact";
 
 export default function Footer() {
@@ -7,8 +8,8 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 pt-12 pb-24 sm:pb-12">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="text-lg font-bold text-white">
-              ORVEX<span className="text-primary"> Agency</span>
+            <h3 className="text-[28px]">
+              <Logo tone="light" />
             </h3>
             <p className="mt-3 text-sm leading-relaxed">
               Diseño y desarrollo webs para negocios. Hablas siempre
@@ -94,7 +95,7 @@ export default function Footer() {
 
         <div className="mt-10 border-t border-gray-800 pt-6 flex flex-col items-center gap-3 text-xs sm:flex-row sm:justify-between">
           <p>
-            &copy; {new Date().getFullYear()} ORVEX Agency. Todos los derechos
+            &copy; {new Date().getFullYear()} Vexel. Todos los derechos
             reservados.
           </p>
           <div className="flex flex-wrap justify-center gap-x-4 gap-y-2">

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Logo from "@/components/logo";
 import { useState } from "react";
 
 const links = [
@@ -16,8 +17,8 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
       <div className="mx-auto max-w-6xl flex items-center justify-between px-4 py-4">
-        <Link href="/" className="text-xl font-bold text-primary">
-          ORVEX<span className="text-dark"> Agency</span>
+        <Link href="/" className="text-[28px]" aria-label="Vexel, inicio">
+          <Logo />
         </Link>
 
         {/* Desktop */}
