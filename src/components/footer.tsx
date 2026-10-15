@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 pt-12 pb-24 sm:pb-12">
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <h3 className="text-[28px]">
+            <h3 className="flex leading-none text-[36px]">
               <Logo tone="light" />
             </h3>
             <p className="mt-3 text-sm leading-relaxed">
