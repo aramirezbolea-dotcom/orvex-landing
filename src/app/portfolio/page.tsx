@@ -12,19 +12,19 @@ export const metadata: Metadata = {
 const projects = [
   {
     plan: "STARTER",
-    title: "Reformas Castillo — Landing",
+    title: "Lindero — Landing de un estudio de reformas",
     description:
-      "Landing de una sola página para una empresa de reformas integrales en Madrid: servicios, proyectos, cifras clave y formulario para pedir presupuesto. El sistema de reservas se puede añadir como extra, desde 200€.",
+      "Landing de una sola página para un estudio de reformas en Madrid, con cinco secciones: portada con cifras, servicios con precios, obras, cómo trabajan y contacto con formulario, mapa y botón de WhatsApp. El sistema de reservas se puede añadir como extra, desde 200€.",
     url: "https://vexel500.netlify.app",
-    tags: ["Landing page", "Responsive", "Formulario", "Reservas como extra"],
+    tags: ["Landing page", "Responsive", "WhatsApp y mapa", "Reservas como extra"],
   },
   {
     plan: "PROFESSIONAL",
-    title: "Reformas Castillo — Web corporativa",
+    title: "Encina Reformas — Web de una empresa de barrio",
     description:
-      "La misma empresa con web completa: páginas de servicios, proyectos, nosotros y contacto, un blog con artículos pensados para posicionar en Google y el sistema de reservas incluido: el cliente elige qué quiere reformar, el día y la hora.",
+      "Web completa para una empresa de reformas: calculadora de precio orientativo, servicios con lista de precios, obras contadas con el encargo y el resultado, quiénes somos, un blog con artículos pensados para Google y el sistema de reservas incluido: el cliente elige qué quiere reformar, el día y la hora.",
     url: "https://vexel800.netlify.app",
-    tags: ["Multipágina", "Reservas incluidas", "Blog", "SEO"],
+    tags: ["Multipágina", "Reservas incluidas", "Calculadora de precio", "Blog", "SEO"],
   },
   {
     plan: "PREMIUM",
