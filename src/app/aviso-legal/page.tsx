@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
 
-export const metadata: Metadata = {
-  title: "Aviso legal — Vexel",
+export const metadata: Metadata = pageMetadata({
+  title: "Aviso legal",
   description: "Información legal sobre el titular de este sitio web.",
-};
+  path: "/aviso-legal",
+  noindex: true,
+});
 
 export default function AvisoLegal() {
   return (

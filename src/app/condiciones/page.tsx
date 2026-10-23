@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Link from "next/link";
 import { PHONE_DISPLAY } from "@/lib/contact";
 import { LAUNCH_OFFER } from "@/lib/plans";
@@ -11,11 +12,13 @@ import {
   SMALL_CHANGE_EXAMPLES,
 } from "@/lib/terms";
 
-export const metadata: Metadata = {
-  title: "Condiciones del servicio — Vexel",
+export const metadata: Metadata = pageMetadata({
+  title: "Condiciones del servicio",
   description:
     "Cómo trabajo, cuándo se paga, qué incluye el mantenimiento y de quién es la web y el dominio.",
-};
+  path: "/condiciones",
+  noindex: true,
+});
 
 export default function Condiciones() {
   return (

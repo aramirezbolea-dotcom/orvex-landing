@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { PLANS, euros } from "@/lib/plans";
 import { currentPrice, getLaunchOffer } from "@/lib/launch-offer";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Webs y diseños — Vexel",
+export const metadata: Metadata = pageMetadata({
+  title: "Ejemplos de webs para negocios: landing, web corporativa y tienda",
   description:
-    "Webs de ejemplo de cada plan, desde una landing page hasta un desarrollo completo a medida.",
-};
+    "Webs de ejemplo de cada plan, desde una landing page de una sola página hasta una web con tienda online o un desarrollo completo a medida. Míralas en vivo antes de decidir.",
+  path: "/portfolio",
+});
 
 const projects = [
   {

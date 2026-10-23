@@ -27,15 +27,18 @@ import {
 import { PLANS, euros } from "@/lib/plans";
 import { currentPrice, getLaunchOffer, spotsLeftText } from "@/lib/launch-offer";
 import { MONTHLY_CHANGES } from "@/lib/terms";
-import Faq from "@/components/faq";
+import Faq, { questions as faqQuestions } from "@/components/faq";
+import JsonLd from "@/components/json-ld";
+import { SITE_URL, pageMetadata } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
   const offer = await getLaunchOffer();
   const from = euros(currentPrice(PLANS.STARTER.price, offer));
-  return {
-    title: "Servicios — Vexel",
-    description: `Planes de diseño web desde ${from}${offer.active ? " con la oferta de lanzamiento" : ""}. Landing pages, webs multipágina, tiendas online y desarrollo a medida.`,
-  };
+  return pageMetadata({
+    title: "Planes y precios de diseño web para negocios",
+    description: `Planes de diseño web desde ${from}${offer.active ? " con la oferta de lanzamiento" : ""}. Landing pages, webs multipágina, tiendas online y desarrollo a medida, con hosting, SSL y mantenimiento incluidos.`,
+    path: "/servicios",
+  });
 }
 
 const plans = [
@@ -276,8 +279,44 @@ const addOns = [
 export default async function Servicios() {
   const offer = await getLaunchOffer();
 
+  // Datos estructurados: los planes con su precio y las preguntas frecuentes de esta página.
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${SITE_URL}/servicios#servicio`,
+        name: "Diseño web para negocios",
+        serviceType: "Diseño y desarrollo web",
+        provider: { "@id": `${SITE_URL}/#negocio` },
+        areaServed: { "@type": "Country", name: "España" },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Planes de diseño web",
+          itemListElement: plans.map((plan) => ({
+            "@type": "Offer",
+            name: `Plan ${plan.name}`,
+            description: plan.description,
+            price: plan.price,
+            priceCurrency: "EUR",
+            url: `${SITE_URL}/servicios`,
+          })),
+        },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqQuestions.map(({ q, a }) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
+      },
+    ],
+  };
+
   return (
     <>
+      <JsonLd data={jsonLd} />
       {/* Header */}
       <section className="bg-gradient-to-b from-gray-50 to-white py-20 sm:py-28">
         <div className="mx-auto max-w-6xl px-4">

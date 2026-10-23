@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Política de privacidad — Vexel",
+export const metadata: Metadata = pageMetadata({
+  title: "Política de privacidad",
   description: "Cómo trato los datos personales que me facilitas a través de esta web.",
-};
+  path: "/privacidad",
+  noindex: true,
+});
 
 export default function Privacidad() {
   return (
