@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FREE_MAINTENANCE_DAYS, MONTHLY_CHANGES, REVISION_ROUNDS, UNPAID_GRACE_DAYS } from "@/lib/terms";
 
-const questions = [
+export const questions = [
   {
     q: "¿Cuándo pago la web?",
     a: `Al entregarla. No pagas nada por adelantado: primero ves la web terminada en un enlace de prueba y, cuando te parece bien, la pagas y la publico en tu dominio. Puedes pagar con tarjeta, Apple Pay o Google Pay. Si tu plan lleva mantenimiento, el primer mes es gratis: la primera cuota se cobra ${FREE_MAINTENANCE_DAYS} días después en la misma tarjeta, y luego cada mes.`,

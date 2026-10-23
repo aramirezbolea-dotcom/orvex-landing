@@ -53,7 +53,7 @@ export default async function Home() {
               </Link>
             )}
             <p className="text-sm font-semibold tracking-widest text-primary uppercase">
-              Diseño web para negocios
+              Diseño web para negocios en Madrid y toda España
             </p>
             <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-dark sm:text-5xl lg:text-5xl xl:text-6xl">
               Tu web profesional,{" "}
