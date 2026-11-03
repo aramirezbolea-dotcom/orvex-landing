@@ -123,6 +123,11 @@ export default function Privacidad() {
             Esta web no utiliza cookies de análisis, publicidad ni seguimiento. Solo podría usar las
             estrictamente técnicas necesarias para que funcione, que no requieren consentimiento.
           </p>
+          <p>
+            Para saber cuántas personas visitan la web y qué páginas miran uso Vercel Web Analytics.
+            Funciona sin cookies, no te identifica y solo ofrece cifras agregadas (páginas vistas,
+            país y origen de la visita).
+          </p>
         </div>
       </div>
     </section>
