@@ -21,12 +21,28 @@ const projects = [
     tags: ["Landing page", "Responsive", "WhatsApp y mapa", "Reservas como extra"],
   },
   {
+    plan: "STARTER",
+    title: "Brezo — Landing de una peluquería",
+    description:
+      "Landing de una sola página para una peluquería, barbería y estética en Madrid: carta de precios por categorías, trabajos recientes, horario, cómo llegar y cita por WhatsApp con un toque. Pensada para negocios que hoy se mueven por Instagram y quieren aparecer en Google.",
+    url: "https://vexel-belleza500.netlify.app",
+    tags: ["Landing page", "Responsive", "Carta de precios", "Cita por WhatsApp"],
+  },
+  {
     plan: "PROFESSIONAL",
     title: "Encina Reformas — Web de una empresa de barrio",
     description:
       "Web completa para una empresa de reformas: calculadora de precio orientativo, servicios con lista de precios, obras contadas con el encargo y el resultado, quiénes somos, un blog con artículos pensados para Google y el sistema de reservas incluido: el cliente elige qué quiere reformar, el día y la hora.",
     url: "https://vexel800.netlify.app",
     tags: ["Multipágina", "Reservas incluidas", "Calculadora de precio", "Blog", "SEO"],
+  },
+  {
+    plan: "PROFESSIONAL",
+    title: "Mecha — Web de una peluquería con reserva online",
+    description:
+      "Web de varias páginas para una peluquería y barbería: servicios con precios, galería, equipo, blog y reserva online incluida. El cliente elige servicio, profesional, día y hora, y recibe un recordatorio por WhatsApp.",
+    url: "https://vexel-belleza800.netlify.app",
+    tags: ["Multipágina", "Reserva online", "Equipo y galería", "Blog", "SEO"],
   },
   {
     plan: "PREMIUM",
@@ -55,14 +71,14 @@ export default async function Portfolio() {
         <div className="mx-auto max-w-6xl px-4">
           <div className="text-center">
             <p className="text-sm font-semibold tracking-widest text-primary uppercase">
-              Un ejemplo para cada plan
+              Ejemplos para cada plan
             </p>
             <h1 className="mt-3 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">
               Webs y diseños
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-gray-600">
-              He hecho una web de ejemplo para cada plan, con negocios
-              inventados, para que veas qué recibes en cada uno. Pronto
+              He hecho webs de ejemplo de cada plan, con negocios
+              inventados (reformas y peluquería), para que veas qué recibes en cada uno. Pronto
               estarán aquí las webs de mis primeros clientes.
             </p>
           </div>
@@ -70,7 +86,7 @@ export default async function Portfolio() {
           <div className="mt-16 grid gap-8 lg:grid-cols-2">
             {projects.map((project) => (
               <div
-                key={project.plan}
+                key={project.url}
                 className="group overflow-hidden rounded-2xl border border-gray-200 bg-white transition-shadow hover:shadow-xl"
               >
                 {/* Preview bar */}
