@@ -13,6 +13,7 @@ export const metadata: Metadata = pageMetadata({
 
 const projects = [
   {
+    sector: "reformas",
     plan: "STARTER",
     title: "Lindero — Landing de un estudio de reformas",
     description:
@@ -21,6 +22,7 @@ const projects = [
     tags: ["Landing page", "Responsive", "WhatsApp y mapa", "Reservas como extra"],
   },
   {
+    sector: "belleza",
     plan: "STARTER",
     title: "Brezo — Landing de una peluquería",
     description:
@@ -29,6 +31,7 @@ const projects = [
     tags: ["Landing page", "Responsive", "Carta de precios", "Cita por WhatsApp"],
   },
   {
+    sector: "reformas",
     plan: "PROFESSIONAL",
     title: "Encina Reformas — Web de una empresa de barrio",
     description:
@@ -37,6 +40,7 @@ const projects = [
     tags: ["Multipágina", "Reservas incluidas", "Calculadora de precio", "Blog", "SEO"],
   },
   {
+    sector: "belleza",
     plan: "PROFESSIONAL",
     title: "Mecha — Web de una peluquería con reserva online",
     description:
@@ -45,6 +49,7 @@ const projects = [
     tags: ["Multipágina", "Reserva online", "Equipo y galería", "Blog", "SEO"],
   },
   {
+    sector: "reformas",
     plan: "PREMIUM",
     title: "Estudio Ávila — Arquitectura e interiorismo",
     description:
@@ -53,12 +58,31 @@ const projects = [
     tags: ["Diseño premium", "Tienda online", "Blog"],
   },
   {
+    sector: "otros",
     plan: "CUSTOM",
     title: "Aether — Plataforma de gestión empresarial",
     description:
       "Web de producto para un software de gestión: CRM, analítica, automatización, tienda con checkout, dashboard, portal de clientes, casos de estudio y precios.",
     url: "https://vexel2500.netlify.app",
     tags: ["SaaS", "Dashboard", "E-commerce", "Portal de clientes"],
+  },
+] as const;
+
+const sections = [
+  {
+    id: "reformas",
+    title: "Reformas, arquitectura e interiorismo",
+    text: "Webs para empresas de reformas, estudios de interiorismo y arquitectura.",
+  },
+  {
+    id: "belleza",
+    title: "Peluquerías y belleza",
+    text: "Webs para peluquerías, barberías y centros de estética, con carta de precios y cita por WhatsApp o reserva online.",
+  },
+  {
+    id: "otros",
+    title: "Otros sectores",
+    text: "Un ejemplo de desarrollo a medida, para negocios con necesidades más complejas.",
   },
 ] as const;
 
@@ -83,8 +107,12 @@ export default async function Portfolio() {
             </p>
           </div>
 
-          <div className="mt-16 grid gap-8 lg:grid-cols-2">
-            {projects.map((project) => (
+          {sections.map((section) => (
+            <div key={section.id} id={section.id} className="mt-16 scroll-mt-28">
+              <h2 className="text-2xl font-bold text-dark sm:text-3xl">{section.title}</h2>
+              <p className="mt-2 max-w-2xl text-gray-600">{section.text}</p>
+              <div className="mt-8 grid gap-8 lg:grid-cols-2">
+            {projects.filter((project) => project.sector === section.id).map((project) => (
               <div
                 key={project.url}
                 className="group overflow-hidden rounded-2xl border border-gray-200 bg-white transition-shadow hover:shadow-xl"
@@ -151,7 +179,9 @@ export default async function Portfolio() {
                 </div>
               </div>
             ))}
-          </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
