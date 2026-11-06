@@ -44,7 +44,7 @@ const siteJsonLd = {
       image: `${SITE_URL}/opengraph-image`,
       logo: `${SITE_URL}/icon.png`,
       telephone: "+34636148793",
-      priceRange: "500 € - 2.500 €",
+      priceRange: "390 € - 2.000 €",
       founder: { "@type": "Person", name: "Álvaro Ramírez" },
       areaServed: [
         { "@type": "AdministrativeArea", name: "Comunidad de Madrid" },

@@ -1,10 +1,10 @@
-export const LAUNCH_OFFER = { percent: 30, spots: 3 };
+export const LAUNCH_OFFER = { percent: 15, spots: 3 };
 
 export const PLANS = {
-  STARTER: { name: "Starter", price: 500, monthly: 39 },
-  PROFESSIONAL: { name: "Professional", price: 800, monthly: 39 },
-  PREMIUM: { name: "Premium", price: 1500, monthly: 59 },
-  CUSTOM: { name: "Custom", price: 2500, monthly: 89 },
+  STARTER: { name: "Starter", price: 390, monthly: 29 },
+  PROFESSIONAL: { name: "Professional", price: 650, monthly: 39 },
+  PREMIUM: { name: "Premium", price: 1200, monthly: 59 },
+  CUSTOM: { name: "Custom", price: 2000, monthly: 89 },
 } as const;
 
 export type PlanKey = keyof typeof PLANS;

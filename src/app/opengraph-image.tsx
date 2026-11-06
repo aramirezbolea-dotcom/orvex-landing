@@ -30,7 +30,7 @@ export default function OpengraphImage() {
             Diseño web para negocios
           </div>
           <div style={{ display: "flex", fontSize: 34, color: "#c7cdf5" }}>
-            Boceto gratis · Pagas al final · Desde 500 €
+            Boceto gratis · Pagas al final · Desde 390 €
           </div>
         </div>
       </div>
