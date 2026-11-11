@@ -67,6 +67,12 @@ const plans = [
       { text: "Sistema de reservas (extra desde 200€)", included: false },
       { text: "Tienda online", included: false },
     ],
+        automations: [
+      "Aviso al instante en tu correo y en tu móvil de cada mensaje del formulario",
+      "Respuesta automática al cliente: «Hemos recibido tu mensaje»",
+      "Todos tus contactos guardados en una hoja de Google",
+      "Aviso de «ahora estamos cerrados» en la web fuera de tu horario",
+    ],
     ideal: "Autónomos, pequeños comercios, profesionales independientes",
     delivery: "5-7 días laborables",
     popular: false,
@@ -94,6 +100,14 @@ const plans = [
       { text: "Soporte por email y WhatsApp (respuesta en menos de 24 h)", included: true },
       { text: "Tienda online", included: false },
       { text: "Integraciones a medida", included: false },
+    ],
+        automations: [
+      "Todo lo del plan Starter",
+      "Confirmación automática de cada cita al cliente, por correo",
+      "Cada cita se apunta sola en tu Google Calendar",
+      "Recordatorio automático al cliente el día antes de su cita",
+      "Petición de reseña en Google después de la visita",
+      "Resumen semanal por correo: contactos y citas de la semana",
     ],
     ideal: "PYMEs, clínicas, peluquerías, centros de estética, despachos, restaurantes, academias",
     delivery: "10-15 días laborables",
@@ -126,6 +140,13 @@ const plans = [
       },
       { text: "Soporte por teléfono y WhatsApp (respuesta en menos de 24 h)", included: true },
     ],
+        automations: [
+      "Todo lo del plan Professional",
+      "Recibo automático de cada pago y aviso de cada venta",
+      "Los clientes que lo aceptan entran solos en tu lista de correo",
+      "Chat en la web con avisos en tu móvil",
+      "Informe mensual por correo: ventas, citas y contactos",
+    ],
     ideal: "Tiendas y negocios que venden o cobran desde su web",
     delivery: "15-25 días laborables",
     popular: false,
@@ -154,6 +175,13 @@ const plans = [
       { text: "Integraciones a medida (API)", included: true },
       { text: "Automatizaciones de negocio", included: true },
       { text: "Soporte directo por teléfono y WhatsApp (respuesta en menos de 24 h)", included: true },
+    ],
+        automations: [
+      "Todo lo del plan Premium",
+      "Presupuestos en PDF que se generan solos desde el formulario",
+      "Ficha y carpeta de cada cliente creadas automáticamente",
+      "Panel con tus datos al día",
+      "Automatizaciones a medida de tu negocio",
     ],
     ideal: "Empresas con necesidades específicas, startups, SaaS",
     delivery: "30-60 días laborables",
@@ -438,6 +466,21 @@ export default async function Servicios() {
                     ))}
                   </div>
 
+                  <div className="rounded-lg border border-gray-200 bg-gray-50 p-3">
+                    <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-dark">
+                      <Zap className="w-3.5 h-3.5 text-primary" />
+                      Automatizaciones incluidas
+                    </p>
+                    <ul className="mt-2 space-y-1.5">
+                      {plan.automations.map((text) => (
+                        <li key={text} className="flex items-start gap-2 text-sm text-gray-700">
+                          <Check className="w-4 h-4 mt-0.5 text-primary shrink-0" />
+                          <span>{text}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
                   <div
                     className={`text-xs border rounded-lg px-3 py-2.5 ${plan.colorLight}`}
                   >
@@ -467,6 +510,11 @@ export default async function Servicios() {
               </div>
             ))}
           </div>
+          <p className="mx-auto mt-8 max-w-3xl text-center text-sm text-gray-500">
+            Las automatizaciones funcionan con herramientas gratuitas de Google y Telegram, así que no
+            pagas nada más al mes por ellas. Si cobras online, Stripe se queda una pequeña comisión
+            por cada venta, como cualquier pasarela de pago.
+          </p>
         </div>
       </section>
 
