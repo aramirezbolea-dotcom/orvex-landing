@@ -32,7 +32,7 @@ export default function HeroVideo() {
         loop
         playsInline
         preload="metadata"
-        aria-label="Vídeo de presentación de Vexel: webs rápidas para negocios locales, desde 390 €"
+        aria-label="Vídeo de presentación de Vexel: webs rápidas para negocios locales"
         onPlay={() => setPlaying(true)}
         onPause={() => setPlaying(false)}
       >
