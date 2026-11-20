@@ -31,6 +31,15 @@ const projects = [
     tags: ["Landing page", "Responsive", "Carta de precios", "Cita por WhatsApp"],
   },
   {
+    sector: "belleza",
+    plan: "STARTER",
+    title: "Flequi — Landing de una peluquería y barbería joven",
+    description:
+      "Landing de una sola página con estética callejera para una peluquería y barbería que quiere llegar a gente joven: portada con fotos de sus trabajos, precios a la vista, horario, cómo llegar y cita por WhatsApp. Pensada para quien se mueve por Instagram y TikTok.",
+    url: "https://magenta-yeot-bfb472.netlify.app",
+    tags: ["Landing page", "Responsive", "Estilo joven", "Cita por WhatsApp"],
+  },
+  {
     sector: "reformas",
     plan: "PROFESSIONAL",
     title: "Encina Reformas — Web de una empresa de barrio",
