@@ -41,6 +41,11 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
+// Las automatizaciones de cada plan (bloque «Automatizaciones incluidas») están
+// preparadas pero ocultas hasta que se hayan probado con un cliente real.
+// Para volver a mostrarlas, poner esto en true.
+const SHOW_AUTOMATIONS = false;
+
 const plans = [
   {
     ...PLANS.STARTER,
@@ -64,7 +69,6 @@ const plans = [
       { text: "Soporte por email y WhatsApp", included: true },
       { text: "Blog", included: false },
       { text: "Múltiples páginas", included: false },
-      { text: "Automatizaciones (desde el plan Professional)", included: false },
       { text: "Sistema de reservas (extra desde 200€)", included: false },
       { text: "Tienda online", included: false },
     ],
@@ -465,7 +469,7 @@ export default async function Servicios() {
                     ))}
                   </div>
 
-                  {plan.automations.length > 0 && (
+                  {SHOW_AUTOMATIONS && plan.automations.length > 0 && (
                     <div className="rounded-lg border border-gray-200 bg-gray-50 p-3">
                       <p className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-dark">
                         <Zap className="w-3.5 h-3.5 text-primary" />
@@ -511,11 +515,13 @@ export default async function Servicios() {
               </div>
             ))}
           </div>
-          <p className="mx-auto mt-8 max-w-3xl text-center text-sm text-gray-500">
-            Las automatizaciones (desde el plan Professional) funcionan con herramientas gratuitas de
-            Google y Telegram, así que no pagas nada más al mes por ellas. Si cobras online, Stripe se queda una pequeña comisión
-            por cada venta, como cualquier pasarela de pago.
-          </p>
+          {SHOW_AUTOMATIONS && (
+            <p className="mx-auto mt-8 max-w-3xl text-center text-sm text-gray-500">
+              Las automatizaciones (desde el plan Professional) funcionan con herramientas gratuitas de
+              Google y Telegram, así que no pagas nada más al mes por ellas. Si cobras online, Stripe se queda una pequeña comisión
+              por cada venta, como cualquier pasarela de pago.
+            </p>
+          )}
         </div>
       </section>
 
