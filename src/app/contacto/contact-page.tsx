@@ -383,7 +383,7 @@ function ContactForm({ initialPlan, offer }: { initialPlan: PlanValue; offer: La
               {(Object.keys(PLANS) as PlanKey[]).map((key) => (
                 <option key={key} value={key}>
                   {offer.active
-                    ? `${PLANS[key].name} — ${euros(currentPrice(PLANS[key].price, offer))} (antes ${euros(PLANS[key].price)})`
+                    ? `${PLANS[key].name} — ${euros(currentPrice(PLANS[key], offer))} (antes ${euros(PLANS[key].price)})`
                     : `${PLANS[key].name} — ${euros(PLANS[key].price)}`}
                 </option>
               ))}

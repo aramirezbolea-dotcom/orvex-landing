@@ -140,7 +140,7 @@ export default async function Portfolio() {
                         </s>
                       )}
                       <span className="font-semibold">
-                        {euros(currentPrice(PLANS[project.plan].price, offer))}
+                        {euros(currentPrice(PLANS[project.plan], offer))}
                       </span>
                     </span>
                   </div>
