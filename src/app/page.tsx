@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getLaunchOffer, spotsLeftText } from "@/lib/launch-offer";
+import { LAUNCH_OFFER } from "@/lib/plans";
 import { REVISION_ROUNDS } from "@/lib/terms";
 import { WHATSAPP_URL } from "@/lib/contact";
 import WhatsAppIcon from "@/components/whatsapp-icon";
@@ -39,7 +40,7 @@ export default async function Home() {
                 className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-white py-1.5 pl-1.5 pr-4 text-sm font-medium text-dark shadow-sm hover:border-primary transition-colors"
               >
                 <span className="rounded-full bg-primary px-2 py-0.5 text-xs font-bold text-white">
-                  -{offer.percent}%
+                  Hasta -{LAUNCH_OFFER.percent}%
                 </span>
                 <span>
                   Oferta de lanzamiento

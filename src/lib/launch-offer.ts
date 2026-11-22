@@ -32,8 +32,9 @@ export async function getLaunchOffer(): Promise<LaunchOffer> {
   }
 }
 
-export function currentPrice(price: number, offer: LaunchOffer) {
-  return offer.active ? Math.round((price * (100 - offer.percent)) / 100) : price;
+// Precio que se enseña de un plan: el de lanzamiento mientras quedan plazas.
+export function currentPrice(plan: { price: number; launch: number }, offer: LaunchOffer) {
+  return offer.active ? plan.launch : plan.price;
 }
 
 export function spotsLeftText(offer: LaunchOffer) {

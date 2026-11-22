@@ -211,8 +211,9 @@ export default function Condiciones() {
         <div className="space-y-3">
           <h2 className="text-xl font-semibold text-dark">12. Oferta de lanzamiento</h2>
           <p>
-            Los {LAUNCH_OFFER.spots} primeros clientes que aceptan una propuesta tienen un{" "}
-            {LAUNCH_OFFER.percent}% de descuento en el precio de la web. A cambio, me das tu
+            Los {LAUNCH_OFFER.spots} primeros clientes que aceptan una propuesta pagan un precio de
+            lanzamiento más bajo en el precio de la web (hasta un {LAUNCH_OFFER.percent}% menos, según el
+            plan, y el precio exacto es el que ves en la página de servicios). A cambio, me das tu
             opinión y me dejas enseñar tu web en mi portfolio. La cuota mensual no cambia.
           </p>
         </div>

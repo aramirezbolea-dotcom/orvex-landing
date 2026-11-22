@@ -24,7 +24,7 @@ import {
   Database,
   ChevronDown,
 } from "lucide-react";
-import { PLANS, euros } from "@/lib/plans";
+import { LAUNCH_OFFER, PLANS, discountPercent, euros } from "@/lib/plans";
 import { currentPrice, getLaunchOffer, spotsLeftText } from "@/lib/launch-offer";
 import { MONTHLY_CHANGES } from "@/lib/terms";
 import Faq, { questions as faqQuestions } from "@/components/faq";
@@ -33,7 +33,7 @@ import { SITE_URL, pageMetadata } from "@/lib/site";
 
 export async function generateMetadata(): Promise<Metadata> {
   const offer = await getLaunchOffer();
-  const from = euros(currentPrice(PLANS.STARTER.price, offer));
+  const from = euros(currentPrice(PLANS.STARTER, offer));
   return pageMetadata({
     title: "Planes y precios de diseño web para negocios",
     description: `Planes de diseño web desde ${from}${offer.active ? " con la oferta de lanzamiento" : ""}. Landing pages, webs multipágina, tiendas online y desarrollo a medida, con hosting, SSL y mantenimiento incluidos.`,
@@ -371,7 +371,7 @@ export default async function Servicios() {
                   Oferta de lanzamiento
                 </p>
                 <p className="mt-1 text-lg font-bold text-dark">
-                  -{offer.percent}% en el precio inicial para los{" "}
+                  Hasta -{LAUNCH_OFFER.percent}% en el precio inicial para los{" "}
                   {offer.spots} primeros clientes
                   {offer.spotsLeft !== null && (
                     <span className="text-primary"> · {spotsLeftText(offer)}</span>
@@ -425,13 +425,13 @@ export default async function Servicios() {
                         {euros(plan.price)}
                       </s>
                       <span className="rounded-full bg-white/20 px-2 py-0.5 text-xs font-bold">
-                        -{offer.percent}%
+                        -{discountPercent(plan)}%
                       </span>
                     </div>
                   )}
                   <div className={`flex items-baseline gap-1 ${offer.active ? "" : "mt-4"}`}>
                     <span className="text-3xl font-extrabold">
-                      {euros(currentPrice(plan.price, offer))}
+                      {euros(currentPrice(plan, offer))}
                     </span>
                     <span className="text-sm opacity-70">único</span>
                   </div>
