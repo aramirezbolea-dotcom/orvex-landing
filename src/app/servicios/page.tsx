@@ -192,7 +192,7 @@ const plans = [
   },
 ];
 
-// Shown in the SEO card and in the extras list.
+// Extra mensual «Ficha de Google y SEO local»: se muestra en la tarjeta de SEO y en la lista de extras.
 const SEO_FOLLOWUP_PRICE = "49€/mes";
 
 const allFeatures = [
@@ -225,7 +225,7 @@ const allFeatures = [
       "Premium: SEO avanzado y Google Search Console.",
       "Custom: SEO completo.",
     ],
-    moreEnd: `Ayuda a que te encuentren, pero nadie puede garantizar salir el primero. Si después quieres más, hay un extra de seguimiento SEO mensual (${SEO_FOLLOWUP_PRICE}).`,
+    moreEnd: `Ayuda a que te encuentren, pero nadie puede garantizar salir el primero. Si después quieres más, hay un extra mensual de ficha de Google y SEO local (${SEO_FOLLOWUP_PRICE}).`,
     moreLink: { text: "Ver extras", href: "#extras" },
   },
   {
@@ -295,9 +295,9 @@ const addOns = [
   },
   {
     icon: Search,
-    title: "Seguimiento SEO mensual",
+    title: "Ficha de Google y SEO local",
     price: SEO_FOLLOWUP_PRICE,
-    desc: "Cada mes reviso cómo te encuentra Google, corrijo lo que falle y te mando un resumen. Sin garantizar posiciones.",
+    desc: "Cada mes cuido tu ficha de Google (datos, horario y fotos), te ayudo a conseguir y responder reseñas, reviso cómo te encuentra Google y corrijo lo que falle en tu web. Te mando un resumen sencillo. Sin garantizar posiciones.",
   },
   {
     icon: PenLine,
